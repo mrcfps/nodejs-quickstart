@@ -1,0 +1,23 @@
+{
+  "name": "timer",
+  "version": "1.0.0",
+  "description": "A cool timer",
+  "main": "timer.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mRcfps/nodejs-quickstart.git"
+  },
+  "author": "mRcfps",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/mRcfps/nodejs-quickstart/issues"
+  },
+  "homepage": "https://github.com/mRcfps/nodejs-quickstart#readme",
+  "dependencies": {
+    "commander": "^4.0.1",
+    "ora": "^4.0.3"
+  }
+}
