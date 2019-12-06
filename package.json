@@ -4,6 +4,8 @@
   "description": "A cool timer",
   "main": "timer.js",
   "scripts": {
+    "lint": "eslint **/*.js",
+    "start": "node timer.js -m '上手了' -t 3",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -19,5 +21,8 @@
   "dependencies": {
     "commander": "^4.0.1",
     "ora": "^4.0.3"
+  },
+  "devDependencies": {
+    "eslint": "^6.7.2"
   }
 }
