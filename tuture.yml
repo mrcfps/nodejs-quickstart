@@ -1,7 +1,7 @@
 name: Node.js 快速入门教程
 id: ed2c356a87d6b983ad86166a65beb7d2
 created: '2019-12-03T01:42:02.548Z'
-updated: 2019-12-06T10:00:52.255Z
+updated: 2019-12-12T10:44:02.103Z
 categories:
   - 后端
   - Node.js
@@ -119,6 +119,16 @@ steps:
             简而言之，Node 为我们提供了一个无需依赖浏览器、能够直接与操作系统进行交互的 JavaScript 代码运行环境！
     explain:
       pre: >-
+
+        ::: primary
+
+        此教程属于[Node.js
+        后端工程师学习路线](https://tuture.co/roadmaps/node/)的一部分，点击可查看全部内容。
+
+        :::
+
+
+
         ### 什么是 Node？
 
 
@@ -306,7 +316,6 @@ steps:
         - `platform`：当前操作系统的平台
 
 
-
         ::: info
 
         **提示**
@@ -315,7 +324,6 @@ steps:
         可以在 Node REPL 中尝试一下这些对象哦！
 
         :::
-
 
 
         #### `__filename` 和 `__dirname`
@@ -742,6 +750,14 @@ steps:
 
 
         这篇 Node.js 快速入门教程到这里就结束了，希望能够成为你进一步探索 Node.js 或是前端开发的基石！
+
+
+        ::: primary
+
+        此教程属于[Node.js
+        后端工程师学习路线](https://tuture.co/roadmaps/node/)的一部分，点击可查看全部内容。
+
+        :::
 github: 'https://github.com/mRcfps/nodejs-quickstart'
 description: >-
   Node.js 太火了，火到几乎所有前端工程师都想学，几乎所有后端工程师也想学。一说到
