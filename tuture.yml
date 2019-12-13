@@ -1,7 +1,7 @@
 name: Node.js 快速入门教程
 id: ed2c356a87d6b983ad86166a65beb7d2
 created: '2019-12-03T01:42:02.548Z'
-updated: 2019-12-12T10:44:02.103Z
+updated: 2019-12-13T12:48:25.732Z
 categories:
   - 后端
   - Node.js
@@ -27,7 +27,7 @@ steps:
 
 
             REPL 的全称是 Read Eval Print
-            Loop（读取-执行-输出循环），通常可以理解为**交互式解释器**，你可以输入任何表达式或语句，然后就会立刻执行并返回结果。如果你用过
+            Loop（读取-执行-输出-循环），通常可以理解为**交互式解释器**，你可以输入任何表达式或语句，然后就会立刻执行并返回结果。如果你用过
             Python 的 REPL 一定会觉得很熟悉。
 
             :::
@@ -91,7 +91,7 @@ steps:
 
 
             REPL 通常用来进行一些代码的试验。在搭建具体应用时，更多的还是创建 Node 文件。我们先创建一个最简单的 Node.js
-            应用，叫做 timer.js，代码如下：
+            脚本文件，叫做 timer.js，代码如下：
           post: >-
             然后用 Node 解释器执行这个文件：
 
@@ -140,8 +140,8 @@ steps:
         ![](tuture-assets/javascript-component.png)
 
 
-        两个运行环境的共同组成部分就是 ECMAScript，也就是剥离了所有运行环境的 JavaScript **语言标准**本身。现在
-        ECMAScript 的发展速度非常惊人，几乎能够做到每年发展一个版本。
+        两个运行环境共同包含了 ECMAScript，也就是剥离了所有运行环境的 JavaScript **语言标准**本身。现在 ECMAScript
+        的发展速度非常惊人，几乎能够做到每年发展一个版本。
 
 
 
@@ -249,7 +249,7 @@ steps:
 
 
             从上面的代码中也可以一瞥 Node.js 异步的魅力：在 `setTimeout` 等待的 3
-            秒内，程序并**没有阻塞**，而是**继续向下执行**。
+            秒内，程序并**没有阻塞**，而是**继续向下执行**，这就是 Node.js 的异步非阻塞！
 
 
 
@@ -321,16 +321,41 @@ steps:
         **提示**
 
 
-        可以在 Node REPL 中尝试一下这些对象哦！
+        可以在 Node REPL 中尝试一下这些对象。像上面说的那样进入 REPL（你的输出很有可能跟我的不一样）：
+
+
+        ```bash
+
+        $ node
+
+        Welcome to Node.js v12.10.0.
+
+        Type ".help" for more information.
+
+        > process.pid
+
+        3
+
+        > process.platform
+
+        'darwin'
+
+        ```
 
         :::
+
+
+        #### `Buffer`
+
+
+        `Buffer` 全局对象让 JavaScript 也能够轻松地处理二进制数据流，结合 Node
+        的流接口（Stream），能够实现高效的二进制文件处理。这篇教程不会涉及 `Buffer`。
 
 
         #### `__filename` 和 `__dirname`
 
 
         分别代表当前所运行 Node 脚本的文件路径和所在目录路径。
-
 
 
         ::: warning
@@ -369,7 +394,7 @@ steps:
             `printProgramInfo` 和 `getCurrentTime`，代码如下：
           post: 再运行一下 timer.js，输出内容应该与之前完全一致。
     explain:
-      pre: "Node.js 相比之前的浏览器 JavaScript 的另一个重点改变就是：模块机制的引入。这一节内容很长，但却是入门 Node.js 最为关键的一步，加油吧\U0001F4AA！\n\n### JavaScript 的模块化之路\n\nEric Raymond 在《UNIX编程艺术》中定义了**模块性**（Modularity）的规则：\n\n> 开发人员应使用通过定义明确的接口连接的简单零件来构建程序，因此问题是局部的，可以在将来的版本中替换程序的某些部分以支持新功能。 该规则旨在节省调试复杂、冗长且不可读的复杂代码的时间。\n\n“分而治之”的思想在计算机的世界非常普遍，但是在 ES2015 标准出现以前（*不了解没关系，后面会讲到*）， JavaScript 语言定义本身并没有模块化的机制，构建复杂应用也没有统一的接口标准。人们通常使用一系列的 `<script>` 标签来导入相应的模块（依赖）：\n\n```html\n<head>\n  <script src=\"fileA.js\"></script>\n  <script src=\"fileB.js\"></script>\n</head>\n```\n\n这种组织 JS 代码的方式有很多问题，其中最显著的包括：\n\n- 导入的多个 JS 文件直接作用于全局命名空间，很容易产生**命名冲突**\n- 导入的 JS 文件之间不能相互访问，例如 fileB.js 中无法访问 fileA.js 中的内容，很不方便\n- 导入的 `<script>` 无法被轻易去除或修改\n\n人们渐渐认识到了 JavaScript 模块化机制的缺失带来的问题，于是两大模块化规范被提出：\n\n1. [AMD（Asynchronous Module Definition）规范](https://github.com/amdjs/amdjs-api/blob/master/AMD.md)，在浏览器中使用较为普遍，最经典的实现包括 [RequireJS](https://requirejs.org/)；\n2. [CommonJS 规范](http://wiki.commonjs.org/wiki/CommonJS)，致力于为 JavaScript 生态圈提供统一的接口 API，Node.js 所实现的正是这一模块标准。\n\n::: info\n**提示**\n\nECMAScript 2015（也就是大家常说的 ES6）标准为 JavaScript 语言引入了全新的模块机制（称为 ES 模块，全称 ECMAScript Modules），并提供了 `import` 和 `export` 关键词，如果感兴趣可参考[这篇文章](https://zhuanlan.zhihu.com/p/36358695)。但是截止目前，Node.js 对 ES 模块的支持还处于**试验阶段**，因此这篇文章不会讲解、也不提倡使用。\n:::\n\n### Node 模块机制浅析\n\n如前面所说，Node.js 实现了 CommonJS 的模块规范。具体而言，它在 Node.js 环境中引入了三个新的全局对象（还是 Node 专属哦）：1）`require`；2） `exports` 和 3）`module`。下面我们逐一讲解。\n\n**`require`**\n\n`require` 用于导入其他 Node 模块，其参数接受一个字符串代表模块的名称或路径，具体有以下三种形式：\n\n- 直接写模块名称，通常是内置模块或第三方模块，例如 `os`、`express` 等\n- 模块的相对路径，指向项目中其他 Node 模块，例如 `./utils`\n- 模块的绝对路径（**不推荐！**），例如 `/home/xxx/MyProject/utils`\n\n::: info\n**提示**\n\n在通过路径导入模块时，通常省略文件名中的 `.js` 后缀。\n:::\n\n\n代码示例如下：\n\n```javascript\n// 导入内置库或第三方模块\nconst os = require('os');\nconst express = require('express');\n\n// 通过相对路径导入其他模块\nconst utils = require('./utils');\n\n// 通过绝对路径导入其他模块\nconst utils = require('/home/xxx/MyProject/utils');\n```\n\n你也许会好奇，通过名称导入 Node 模块的时候（例如 `express`），是从哪里找到这个模块的？实际上每个模块都有个路径搜索列表 `module.paths`，在后面讲解 `module` 对象的时候就会一清二楚了。\n\n**`exports`**\n\n我们已经学会了用 `require` 导入其他模块中的内容，那么怎么写一个 Node 模块，并导出其中内容呢？答案就是用 `exports` 对象。\n\n例如我们写一个 Node 模块 myModule.js：\n\n```javascript\n// myModule.js\nfunction add(a, b) {\n  return a + b;\n}\n\n// 导出函数 add\nexports.add = add;\n```\n\n通过将 `add` 函数添加到 `exports` 对象中，外面的模块就可以通过以下代码使用这个函数。在 myModule.js 旁边创建一个 main.js，代码如下：\n\n```javascript\n// main.js\nconst myModule = require('./myModule');\n\n// 调用 myModule.js 中的 add 函数\nmyModule.add(1, 2);\n```\n\n\n::: info\n**提示**\n\n如果你熟悉 ECMAScript 6 中的[解构赋值](http://es6.ruanyifeng.com/#docs/destructuring)，那么可以用更优雅的方式获取 `add` 函数：\n\n```javascript\nconst { add } = require('./myModule');\n```\n:::\n\n**`module`**\n\n通过 `require` 和 `exports`，我们已经知道了如何导入、导出 Node 模块中的内容，但是你可能还是觉得 Node 模块机制有一丝丝神秘的感觉。接下来，我们将掀开这神秘的面纱，了解一下背后的主角——`module` 模块对象。\n\n我们可以在刚才的 myModule.js 文件的最后加上这一行代码：\n\n```javascript\nconsole.log('module myModule:', module);\n```\n\n在 main.js 最后加上：\n\n```javascript\nconsole.log('module main:', module);\n```\n\n运行后会打印出来这样的内容（左边是 myModule，右边是 module）：\n\n![](tuture-assets/module.png)\n\n可以看到 `module` 对象有以下字段：\n\n- `id`：模块的唯一标识符，如果是被运行的主程序（例如 main.js）则为 `.`，如果是被导入的模块（例如 myModule.js）则等同于此文件名（即下面的 `filename` 字段）\n- `path` 和 `filename`：模块所在路径和文件名，没啥好说的\n- `exports`：模块所导出的内容，实际上**之前的 `exports` 对象是指向 `module.exports` 的引用**。例如对于 myModule.js，刚才我们导出了 `add` 函数，因此出现在了这个 `exports` 字段里面；而 main.js 没有导出任何内容，因此 `exports` 字段为空\n- `parent` 和 `children`：用于记录模块之间的导入关系，例如 main.js 中 `require` 了 myModule.js，那么 myModule 就是 main 的 `parent`，main 就是myModule 的 `children`\n- `loaded`：模块是否被加载，从上图中可以看出只有 `children` 中列出的模块才会被加载\n- `paths`：这个就是 Node **搜索模块的路径列表**，Node 会从第一个路径到最后一个依次搜索，找到了则可以导入，找不到就会报错\n\n**深入理解 `module.exports`**\n\n之前我们提到，`exports` 对象本质上是 `module.exports` 的引用。也就是说，下面两行代码是等价的：\n\n```javascript\n// 导出 add 函数\nexports.add = add;\n\n// 和上面一行代码是一样的\nmodule.exports.add = add;\n```\n\n实际上还有第二种导出方式，直接把 `add` 函数赋给 `module.exports` 对象：\n\n```javascript\nmodule.exports = add;\n```\n\n这样写和第一种导出方式有什么区别呢？第一种方式，在 `exports` 对象上添加一个属性名为 `add`，该属性的值为 `add` 函数；第二种方式，直接令 `exports` 对象为 `add` 函数。可能有点绕，但是请一定要理解这两者的重大区别！\n\n在 `require` 时，两者的区别就很明显了：\n\n```javascript\n// 第一种导出方式，需要访问 add 属性获取到 add 函数\nconst myModule = require('myModule');\nmyModule.add(1, 2);\n\n// 第二种导出方式，可以直接使用 add 函数\nconst add = require('myModule');\nadd(1, 2);\n```\n\n::: warning\n**警告**\n\n直接写 `exports = add;` 无法导出 `add` 函数，因为 `exports` 本质上是指向 `module` 的 `exports` 属性的引用，直接对 `exports` 赋值只会改变 `exports`，对 `module.exports` 没有影响。如果你觉得难以理解，那我们用 `apple` 和 `price` 类比 `module` 和 `exports`：\n\n```javascript\napple = { price: 1 };   // 想象 apple 就是 module\nprice = apple.price;    // 想象 price 就是 exports\napple.price = 3;        // 改变了 apple.price\nprice = 3;              // 只改变了 price，没有改变 apple.price\n```\n\n我们只能通过 `apple.price = 1` 设置 `price` 属性，而直接对 `price` 赋值并不能修改 `apple.price`。\n:::\n"
+      pre: "Node.js 相比之前的浏览器 JavaScript 的另一个重点改变就是：模块机制的引入。这一节内容很长，但却是入门 Node.js 最为关键的一步，加油吧\U0001F4AA！\n\n### JavaScript 的模块化之路\n\nEric Raymond 在《UNIX编程艺术》中定义了**模块性**（Modularity）的规则：\n\n> 开发人员应使用通过定义明确的接口连接的简单零件来构建程序，因此问题是局部的，可以在将来的版本中替换程序的某些部分以支持新功能。 该规则旨在节省调试复杂、冗长且不可读的复杂代码的时间。\n\n“分而治之”的思想在计算机的世界非常普遍，但是在 ES2015 标准出现以前（*不了解没关系，后面会讲到*）， JavaScript 语言定义本身并没有模块化的机制，构建复杂应用也没有统一的接口标准。人们通常使用一系列的 `<script>` 标签来导入相应的模块（依赖）：\n\n```html\n<head>\n  <script src=\"fileA.js\"></script>\n  <script src=\"fileB.js\"></script>\n</head>\n```\n\n这种组织 JS 代码的方式有很多问题，其中最显著的包括：\n\n- 导入的多个 JS 文件直接作用于全局命名空间，很容易产生**命名冲突**\n- 导入的 JS 文件之间不能相互访问，例如 fileB.js 中无法访问 fileA.js 中的内容，很不方便\n- 导入的 `<script>` 无法被轻易去除或修改\n\n人们渐渐认识到了 JavaScript 模块化机制的缺失带来的问题，于是两大模块化规范被提出：\n\n1. [AMD（Asynchronous Module Definition）规范](https://github.com/amdjs/amdjs-api/blob/master/AMD.md)，在浏览器中使用较为普遍，最经典的实现包括 [RequireJS](https://requirejs.org/)；\n2. [CommonJS 规范](http://wiki.commonjs.org/wiki/CommonJS)，致力于为 JavaScript 生态圈提供统一的接口 API，Node.js 所实现的正是这一模块标准。\n\n::: info\n**提示**\n\nECMAScript 2015（也就是大家常说的 ES6）标准为 JavaScript 语言引入了全新的模块机制（称为 ES 模块，全称 ECMAScript Modules），并提供了 `import` 和 `export` 关键词，如果感兴趣可参考[这篇文章](https://zhuanlan.zhihu.com/p/36358695)。但是截止目前，Node.js 对 ES 模块的支持还处于**试验阶段**，因此这篇文章不会讲解、也不提倡使用。\n:::\n\n### 什么是 Node 模块\n\n在正式分析 Node 模块机制之前，我们需要明确定义什么是 Node 模块。通常来说，Node 模块可分为两大类：\n\n- **核心模块**：Node 提供的内置模块，在安装 Node 时已经被编译成**二进制可执行文件**\n- **文件模块**：用户编写的模块，可以是自己写的，也可以是通过 npm 安装的（后面会讲到）。\n\n其中，文件模块可以是一个**单独的文件**（以 `.js`、`.node` 或 `.json` 结尾），或者是一个**目录**。当这个模块是一个目录时，**模块名就是目录名**，有两种情况：\n\n1. 目录中有一个 package.json 文件，则这个 Node 模块的入口就是其中 `main` 字段指向的文件；\n2. 目录中有一个名为 index 的文件，扩展名为 `.js`、`.node` 或 `.json`，此文件则为模块入口文件。\n\n一下子消化不了没关系，可以先阅读后面的内容，忘记了模块的定义可以再回过来看看哦。\n\n### Node 模块机制浅析\n\n知道了 Node 模块的具体定义后，我们来了解一下 Node 具体是怎样实现模块机制的。具体而言，Node 引入了三个新的全局对象（还是 Node 专属哦）：1）`require`；2） `exports` 和 3）`module`。下面我们逐一讲解。\n\n**`require`**\n\n`require` 用于导入其他 Node 模块，其参数接受一个字符串代表模块的名称或路径，通常被称为**模块标识符**。具体有以下三种形式：\n\n- 直接写模块名称，通常是核心模块或第三方文件模块，例如 `os`、`express` 等\n- 模块的相对路径，指向项目中其他 Node 模块，例如 `./utils`\n- 模块的绝对路径（**不推荐！**），例如 `/home/xxx/MyProject/utils`\n\n::: info\n**提示**\n\n在通过路径导入模块时，通常省略文件名中的 `.js` 后缀。\n:::\n\n代码示例如下：\n\n```javascript\n// 导入内置库或第三方模块\nconst os = require('os');\nconst express = require('express');\n\n// 通过相对路径导入其他模块\nconst utils = require('./utils');\n\n// 通过绝对路径导入其他模块\nconst utils = require('/home/xxx/MyProject/utils');\n```\n\n你也许会好奇，通过名称导入 Node 模块的时候（例如 `express`），是从哪里找到这个模块的？实际上每个模块都有个路径搜索列表 `module.paths`，在后面讲解 `module` 对象的时候就会一清二楚了。\n\n**`exports`**\n\n我们已经学会了用 `require` 导入其他模块中的内容，那么怎么写一个 Node 模块，并导出其中内容呢？答案就是用 `exports` 对象。\n\n例如我们写一个 Node 模块 myModule.js：\n\n```javascript\n// myModule.js\nfunction add(a, b) {\n  return a + b;\n}\n\n// 导出函数 add\nexports.add = add;\n```\n\n通过将 `add` 函数添加到 `exports` 对象中，外面的模块就可以通过以下代码使用这个函数。在 myModule.js 旁边创建一个 main.js，代码如下：\n\n```javascript\n// main.js\nconst myModule = require('./myModule');\n\n// 调用 myModule.js 中的 add 函数\nmyModule.add(1, 2);\n```\n\n\n::: info\n**提示**\n\n如果你熟悉 ECMAScript 6 中的[解构赋值](http://es6.ruanyifeng.com/#docs/destructuring)，那么可以用更优雅的方式获取 `add` 函数：\n\n```javascript\nconst { add } = require('./myModule');\n```\n:::\n\n**`module`**\n\n通过 `require` 和 `exports`，我们已经知道了如何导入、导出 Node 模块中的内容，但是你可能还是觉得 Node 模块机制有一丝丝神秘的感觉。接下来，我们将掀开这神秘的面纱，了解一下背后的主角——`module` 模块对象。\n\n我们可以在刚才的 myModule.js 文件的最后加上这一行代码：\n\n```javascript\nconsole.log('module myModule:', module);\n```\n\n在 main.js 最后加上：\n\n```javascript\nconsole.log('module main:', module);\n```\n\n运行后会打印出来这样的内容（左边是 myModule，右边是 module）：\n\n![](tuture-assets/module.png)\n\n可以看到 `module` 对象有以下字段：\n\n- `id`：模块的唯一标识符，如果是被运行的主程序（例如 main.js）则为 `.`，如果是被导入的模块（例如 myModule.js）则等同于此文件名（即下面的 `filename` 字段）\n- `path` 和 `filename`：模块所在路径和文件名，没啥好说的\n- `exports`：模块所导出的内容，实际上**之前的 `exports` 对象是指向 `module.exports` 的引用**。例如对于 myModule.js，刚才我们导出了 `add` 函数，因此出现在了这个 `exports` 字段里面；而 main.js 没有导出任何内容，因此 `exports` 字段为空\n- `parent` 和 `children`：用于记录模块之间的导入关系，例如 main.js 中 `require` 了 myModule.js，那么 main 就是 myModule 的 `parent`，myModule 就是 main 的 `children`\n- `loaded`：模块是否被加载，从上图中可以看出只有 `children` 中列出的模块才会被加载\n- `paths`：这个就是 Node **搜索文件模块的路径列表**，Node 会从第一个路径到最后一个路径依次搜索指定的 Node 模块，找到了则导入，找不到就会报错\n\n::: info\n**提示**\n\n如果你仔细观察，会发现 Node 文件模块查找路径（`module.paths`）的方式其实是这样的：先找当前目录下的 node_modules，没有的话再找上一级目录的 node_modules，还没找到的话就一直向上找，直到根目录下的 node_modules。\n:::\n\n**深入理解 `module.exports`**\n\n之前我们提到，`exports` 对象本质上是 `module.exports` 的引用。也就是说，下面两行代码是等价的：\n\n```javascript\n// 导出 add 函数\nexports.add = add;\n\n// 和上面一行代码是一样的\nmodule.exports.add = add;\n```\n\n实际上还有第二种导出方式，直接把 `add` 函数赋给 `module.exports` 对象：\n\n```javascript\nmodule.exports = add;\n```\n\n这样写和第一种导出方式有什么区别呢？第一种方式，在 `exports` 对象上添加一个属性名为 `add`，该属性的值为 `add` 函数；第二种方式，直接令 `exports` 对象为 `add` 函数。可能有点绕，但是请一定要理解这两者的重大区别！\n\n在 `require` 时，两者的区别就很明显了：\n\n```javascript\n// 第一种导出方式，需要访问 add 属性获取到 add 函数\nconst myModule = require('myModule');\nmyModule.add(1, 2);\n\n// 第二种导出方式，可以直接使用 add 函数\nconst add = require('myModule');\nadd(1, 2);\n```\n\n::: warning\n**警告**\n\n直接写 `exports = add;` 无法导出 `add` 函数，因为 `exports` 本质上是指向 `module` 的 `exports` 属性的引用，直接对 `exports` 赋值只会改变 `exports`，对 `module.exports` 没有影响。如果你觉得难以理解，那我们用 `apple` 和 `price` 类比 `module` 和 `exports`：\n\n```javascript\napple = { price: 1 };   // 想象 apple 就是 module\nprice = apple.price;    // 想象 price 就是 exports\napple.price = 3;        // 改变了 apple.price\nprice = 3;              // 只改变了 price，没有改变 apple.price\n```\n\n我们只能通过 `apple.price = 1` 设置 `price` 属性，而直接对 `price` 赋值并不能修改 `apple.price`。\n:::\n"
       post: 读到这里，我想先恭喜你渡过了 Node.js 入门最难的一关！如果你已经真正地理解了 Node 模块机制，那么我相信接下来的学习会无比轻松哦。
   - name: 命令行开发：接受输入参数
     commit: 0658c65
@@ -387,12 +412,12 @@ steps:
     explain:
       pre: >-
         Node.js 作为可以在操作系统中直接运行 JavaScript
-        代码的平台，为前端开发开启了诸多可能，其中就包括一系列用于实现前端自动化工作流的命令行工具，例如
+        代码的平台，为前端开发者开启了无限可能，其中就包括一系列用于实现前端自动化工作流的命令行工具，例如
         [Grunt](http://gruntjs.com/)、[Gulp](https://gulpjs.com/) 还有大名鼎鼎的
         [Webpack](https://webpack.js.org/)。
 
 
-        从这一步开始，我们也将把 timer.js 改造成一个命令行应用。具体地，我们希望 timer.js
+        从这一步开始，我们将把 timer.js 改造成一个命令行应用。具体地，我们希望 timer.js
         可以通过命令行参数指定等待的时间（`time` 选项）和最终输出的信息（`message` 选项）：
 
 
@@ -406,7 +431,7 @@ steps:
         ### 通过 `process.argv` 读取命令行参数
 
 
-        全局对象 `process` 包含一个 `argv` 属性（之前提了一下），能够获取命令行参数的数组。创建一个 args.js 文件，代码如下：
+        之前在讲全局对象 `process` 时提到一个 `argv` 属性，能够获取命令行参数的数组。创建一个 args.js 文件，代码如下：
 
 
         ```javascript
@@ -478,8 +503,8 @@ steps:
             npm 命令就是 `npm install`。
 
 
-            在安装我们需要的 npm 包之前，我们需要去探索一下有哪些包可以为我们所用。通常，我们可以在 npmjs.com
-            上进行关键词搜索（记得用英文哦），比如说我们搜 command line：
+            在安装我们需要的 npm 包之前，我们需要去探索一下有哪些包可以为我们所用。通常，我们可以在 [npm
+            官方网站](https://npmjs.com) 上进行关键词搜索（记得用英文哦），比如说我们搜 command line：
 
 
             ![](tuture-assets/search-npm.png)
@@ -621,7 +646,7 @@ steps:
         ```
 
 
-        然后把当前项目初始化为 npm 项目:
+        然后在当前目录（也就是刚才编辑的 timer.js 所在的文件夹）运行以下命令，把当前项目初始化为 npm 项目:
 
 
         ```bash
@@ -761,5 +786,5 @@ steps:
 github: 'https://github.com/mRcfps/nodejs-quickstart'
 description: >-
   Node.js 太火了，火到几乎所有前端工程师都想学，几乎所有后端工程师也想学。一说到
-  Node.js，我们马上就会想到“异步”“事件驱动”“非阻塞”“性能优良”这几个特点，但是你真的理解这些词的含义吗？这篇教程将带你快速入门
+  Node.js，我们马上就会想到“异步”、“事件驱动”、“非阻塞”、“性能优良”这几个特点，但是你真的理解这些词的含义吗？这篇教程将带你快速入门
   Node.js，为后续的前端学习或是 Node.js 进阶打下坚实的基础。
