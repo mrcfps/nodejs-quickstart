@@ -13,6 +13,10 @@ setTimeout(() => {
   console.log(program.message);
 }, program.time * 1000);
 
+process.on('exit', () => {
+  console.log('下次再见~');
+});
+
 printProgramInfo();
 console.log('当前时间', datetime.getCurrentTime());
 const spinner = ora('正在加载中，请稍后 ...').start();
