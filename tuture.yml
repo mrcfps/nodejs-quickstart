@@ -1,7 +1,7 @@
 name: Node.js 快速入门教程
 id: ed2c356a87d6b983ad86166a65beb7d2
 created: '2019-12-03T01:42:02.548Z'
-updated: 2019-12-13T12:48:25.732Z
+updated: 2019-12-14T05:14:45.629Z
 categories:
   - 后端
   - Node.js
@@ -123,7 +123,7 @@ steps:
         ::: primary
 
         此教程属于[Node.js
-        后端工程师学习路线](https://tuture.co/roadmaps/node/)的一部分，点击可查看全部内容。
+        后端工程师学习路线](https://github.com/tuture-dev/nodejs-roadmap)的一部分，点击可查看全部内容。
 
         :::
 
@@ -132,8 +132,8 @@ steps:
         ### 什么是 Node？
 
 
-        简单地说，Node 是 JavaScript 的一种**运行环境**。在此之前，我们知道 JavaScript
-        都是在浏览器中执行的，用于给网页添加各种动态效果，那么可以说**浏览器也是 JavaScript
+        简单地说，Node（或者说 Node.js，两者是等价的） 是 JavaScript 的一种**运行环境**。在此之前，我们知道
+        JavaScript 都是在浏览器中执行的，用于给网页添加各种动态效果，那么可以说**浏览器也是 JavaScript
         的运行环境**。那么这两个运行环境有哪些差异呢？请看下图：
 
 
@@ -200,6 +200,8 @@ steps:
         - 学会利用 npm 社区的力量解决开发中遇到的难题，避免“重复造轮子”
 
         - 了解 npm scripts 的基本概念和使用
+
+        - 初步了解 Node.js 的事件机制
   - name: Node 全局对象初探
     commit: f9d3190
     diff:
@@ -722,7 +724,7 @@ steps:
         display: false
     explain:
       pre: >-
-        在本教程的最后一节中，我们将简单地介绍一下 npm scripts，也就是 npm 脚本。之前在 package.json 中提到，有个字段叫
+        在这一节中，我们将简单地介绍一下 npm scripts，也就是 npm 脚本。之前在 package.json 中提到，有个字段叫
         `scripts`，这个字段就定义了全部的 npm scripts。我们发现在用 `npm init` 时创建的 package.json
         文件默认就添加了一个 `test` 脚本：
 
@@ -772,17 +774,105 @@ steps:
         `build` npm 脚本，那么当你的同事拿到这份代码时，只需简单地执行 `npm run build`
         就可以开始构建，而无需关心背后的技术细节。在后续的 Node.js 或是前端学习中，我们会在实际项目中使用各种 npm scripts
         来定义我们的工作流，大家慢慢就会领会到它的强大了。
+  - name: 下次再见：监听 exit 事件
+    commit: 50ab5a4
+    diff:
+      - file: timer.js
+        display: true
+        explain:
+          pre: >-
+            可以说，Node 中很多对象都继承自 `EventEmitter`，包括我们熟悉的 `process` 全局对象。在之前的
+            timer.js 脚本中，我们监听 `exit` 事件（即 Node 进程结束），并添加一个自定义的回调函数打印“下次再见”的信息：
+          post: >
+            运行后，会在程序退出后打印“下次再见~”的字符串。你可能会问，为啥不能在 `setTimeout`
+            的回调函数中添加程序退出的逻辑呢？因为除了正常运行结束（也就是等待了指定的时间），我们的程序很有可能会因为其他原因退出（例如抛出异常，或者用
+            `process.exit` 强制退出），这时候通过监听 `exit` 事件，就可以在确保所有情况下都能执行 `exit`
+            事件的回调函数。如果你觉得还是不能理解的话，可以看下面这张示意图：
 
 
-        这篇 Node.js 快速入门教程到这里就结束了，希望能够成为你进一步探索 Node.js 或是前端开发的基石！
+            ![](tuture-assets/exit.png)
+
+
+
+            ::: info
+
+            **提示**
+
+
+            `process` 对象还支持其他常用的事件，例如 `SIGINT`（用户按 Ctrl+C
+            时触发）等等，可参考这篇[文档](https://javascript.ruanyifeng.com/nodejs/process.html#toc10)。
+
+            :::
+    explain:
+      post: >-
+        这篇 Node.js 快速入门教程到这里就结束了，希望能够成为你进一步探索 Node.js 或是前端开发的基石。exit
+        事件已经触发，那我们也下次再见啦~
 
 
         ::: primary
 
         此教程属于[Node.js
-        后端工程师学习路线](https://tuture.co/roadmaps/node/)的一部分，点击可查看全部内容。
+        后端工程师学习路线](https://github.com/tuture-dev/nodejs-roadmap)的一部分，点击可查看全部内容。
 
         :::
+      pre: >-
+        在这篇教程的最后一节中，我们将让你简单地感受 Node 的事件机制。Node
+        的事件机制是比较复杂的，足够讲半本书，但这篇教程希望能通过一个非常简单的实例，让你对 Node 事件有个初步的了解。
+
+
+
+        ::: info
+
+        **提示**
+
+
+        如果你有过在网页（或其他用户界面）开发中编写事件处理（例如鼠标点击）的经验，那么你一定会觉得 Node 中处理事件的方式似曾相识而又符合直觉。
+
+        :::
+
+
+
+        我们在前面简单地提了一下回调函数。实际上，回调函数和事件机制共同组成了 Node 的异步世界。具体而言，Node 中的事件都是通过
+        `events` 核心模块中的 `EventEmitter` 这个类实现的。`EventEmitter` 包括两个最关键的方法：
+
+
+        - `on`：用来监听事件的发生
+
+        - `emit`：用来触发新的事件
+
+
+        请看下面这个代码片段：
+
+
+        ```javascript
+
+        const EventEmitter = require('events').EventEmitter;
+
+        const emitter = new EventEmitter();
+
+
+        // 监听 connect 事件，注册回调函数
+
+        emitter.on('connect', function (username) {
+          console.log(username + '已连接');
+        });
+
+
+        // 触发 connect 事件，并且加上一个参数（即上面的 username）
+
+        emitter.emit('connect', '一只图雀');
+
+        ```
+
+
+        运行上面的代码，就会输出以下内容：
+
+
+        ```
+
+        一只图雀已连接
+
+        ```
 github: 'https://github.com/mRcfps/nodejs-quickstart'
 description: >-
   Node.js 太火了，火到几乎所有前端工程师都想学，几乎所有后端工程师也想学。一说到
