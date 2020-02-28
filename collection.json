@@ -1,0 +1,5905 @@
+{
+  "name": "一杯茶的时间，上手 Node.js",
+  "description": "Node.js 太火了，火到几乎所有前端工程师都想学，几乎所有后端工程师也想学。一说到 Node.js，我们马上就会想到“异步”、“事件驱动”、“非阻塞”、“性能优良”这几个特点，但是你真的理解这些词的含义吗？这篇教程将带你快速入门 Node.js，为后续的前端学习或是 Node.js 进阶打下坚实的基础。",
+  "id": "892fa12",
+  "cover": ".tuture/assets/cover.png",
+  "created": "2019-12-03T01:42:02.548Z",
+  "categories": [
+    "后端",
+    "Node.js",
+    "入门"
+  ],
+  "articles": [
+    {
+      "name": "一杯茶的时间，上手 Node.js",
+      "description": "Node.js 太火了，火到几乎所有前端工程师都想学，几乎所有后端工程师也想学。一说到 Node.js，我们马上就会想到“异步”、“事件驱动”、“非阻塞”、“性能优良”这几个特点，但是你真的理解这些词的含义吗？这篇教程将带你快速入门 Node.js，为后续的前端学习或是 Node.js 进阶打下坚实的基础。",
+      "id": "892fa12",
+      "cover": ".tuture/assets/cover.png",
+      "created": "2019-12-03T01:42:02.548Z",
+      "categories": [
+        "后端",
+        "Node.js",
+        "入门"
+      ]
+    }
+  ],
+  "steps": [
+    {
+      "type": "step",
+      "commit": "03752c9",
+      "id": "9o1mgYco",
+      "articleId": "892fa12",
+      "children": [
+        {
+          "type": "heading-two",
+          "commit": "03752c9",
+          "id": "6RlNJPc-Q",
+          "fixed": true,
+          "children": [
+            {
+              "text": "起步"
+            }
+          ]
+        },
+        {
+          "type": "explain",
+          "fixed": true,
+          "children": [
+            {
+              "type": "note",
+              "level": "primary",
+              "children": [
+                {
+                  "type": "paragraph",
+                  "children": [
+                    {
+                      "text": "此教程属于"
+                    },
+                    {
+                      "link": true,
+                      "url": "https://github.com/tuture-dev/nodejs-roadmap",
+                      "text": "Node.js 后端工程师学习路线"
+                    },
+                    {
+                      "text": "的一部分，点击可查看全部内容。"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "heading-three",
+              "children": [
+                {
+                  "text": "什么是 Node？"
+                }
+              ],
+              "id": "tUATIDShe"
+            },
+            {
+              "type": "paragraph",
+              "children": [
+                {
+                  "text": "简单地说，Node（或者说 Node.js，两者是等价的） 是 JavaScript 的一种"
+                },
+                {
+                  "bold": true,
+                  "text": "运行环境"
+                },
+                {
+                  "text": "。在此之前，我们知道 JavaScript 都是在浏览器中执行的，用于给网页添加各种动态效果，那么可以说"
+                },
+                {
+                  "bold": true,
+                  "text": "浏览器也是 JavaScript 的运行环境"
+                },
+                {
+                  "text": "。那么这两个运行环境有哪些差异呢？请看下图："
+                }
+              ]
+            },
+            {
+              "type": "paragraph",
+              "children": [
+                {
+                  "type": "image",
+                  "url": ".tuture/assets/javascript-component.png",
+                  "children": [
+                    {
+                      "text": ""
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "paragraph",
+              "children": [
+                {
+                  "text": "两个运行环境共同包含了 ECMAScript，也就是剥离了所有运行环境的 JavaScript "
+                },
+                {
+                  "bold": true,
+                  "text": "语言标准"
+                },
+                {
+                  "text": "本身。现在 ECMAScript 的发展速度非常惊人，几乎能够做到每年发展一个版本。"
+                }
+              ]
+            },
+            {
+              "type": "note",
+              "level": "info",
+              "children": [
+                {
+                  "type": "paragraph",
+                  "children": [
+                    {
+                      "text": "ECMAScript 和 JavaScript 的关系是，前者是后者的规格，后者是前者的一种实现。在日常场合，这两个词是可以互换的。更多背景知识可参考阮一峰的"
+                    },
+                    {
+                      "link": true,
+                      "url": "http://javascript.ruanyifeng.com/introduction/history.html",
+                      "text": "《JavaScript语言的历史》"
+                    },
+                    {
+                      "text": "。"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "paragraph",
+              "children": [
+                {
+                  "text": "另一方面，浏览器端 JavaScript 还包括了："
+                }
+              ]
+            },
+            {
+              "type": "bulleted-list",
+              "children": [
+                {
+                  "type": "list-item",
+                  "children": [
+                    {
+                      "text": "浏览器对象模型（Browser Object Model，简称 BOM），也就是 "
+                    },
+                    {
+                      "code": true,
+                      "text": "window"
+                    },
+                    {
+                      "text": "  对象"
+                    }
+                  ],
+                  "parent": "bulleted-list",
+                  "level": 0
+                },
+                {
+                  "type": "list-item",
+                  "children": [
+                    {
+                      "text": "文档对象模型（Document Object Model，简称 DOM），也就是 "
+                    },
+                    {
+                      "code": true,
+                      "text": "document"
+                    },
+                    {
+                      "text": " 对象"
+                    }
+                  ],
+                  "parent": "bulleted-list",
+                  "level": 0
+                }
+              ]
+            },
+            {
+              "type": "paragraph",
+              "children": [
+                {
+                  "text": "而 Node.js 则是包括 V8 引擎。V8 是 Chrome 浏览器中的 JavaScript 引擎，经过多年的发展和优化，性能和安全性都已经达到了相当的高度。而 Node.js 则进一步将 V8 引擎加工成可以在任何操作系统中运行 JavaScript 的平台。"
+                }
+              ]
+            },
+            {
+              "type": "heading-three",
+              "children": [
+                {
+                  "text": "预备知识"
+                }
+              ],
+              "id": "baPylHJPW"
+            },
+            {
+              "type": "paragraph",
+              "children": [
+                {
+                  "text": "在正式开始这篇教程之前，我们希望你已经做好了以下准备："
+                }
+              ]
+            },
+            {
+              "type": "bulleted-list",
+              "children": [
+                {
+                  "type": "list-item",
+                  "children": [
+                    {
+                      "text": "了解 JavaScript 语言的基础知识，如果有过浏览器 JS 开发经验就更好了"
+                    }
+                  ],
+                  "parent": "bulleted-list",
+                  "level": 0
+                },
+                {
+                  "type": "list-item",
+                  "children": [
+                    {
+                      "text": "已经安装了 Node.js，配置好了适合自己的编辑器或 IDE"
+                    }
+                  ],
+                  "parent": "bulleted-list",
+                  "level": 0
+                },
+                {
+                  "type": "list-item",
+                  "children": [
+                    {
+                      "text": "了解相对路径和绝对路径"
+                    }
+                  ],
+                  "parent": "bulleted-list",
+                  "level": 0
+                }
+              ]
+            },
+            {
+              "type": "heading-three",
+              "children": [
+                {
+                  "text": "学习目标"
+                }
+              ],
+              "id": "vPse7kLkz"
+            },
+            {
+              "type": "paragraph",
+              "children": [
+                {
+                  "text": "这篇文档将会让你学到："
+                }
+              ]
+            },
+            {
+              "type": "bulleted-list",
+              "children": [
+                {
+                  "type": "list-item",
+                  "children": [
+                    {
+                      "text": "浏览器 JavaScript 与 Node.js 的关系与区别"
+                    }
+                  ],
+                  "parent": "bulleted-list",
+                  "level": 0
+                },
+                {
+                  "type": "list-item",
+                  "children": [
+                    {
+                      "text": "了解 Node.js 有哪些全局对象"
+                    }
+                  ],
+                  "parent": "bulleted-list",
+                  "level": 0
+                },
+                {
+                  "type": "list-item",
+                  "children": [
+                    {
+                      "text": "掌握 Node.js 如何导入和导出模块，以及模块机制的原理"
+                    }
+                  ],
+                  "parent": "bulleted-list",
+                  "level": 0
+                },
+                {
+                  "type": "list-item",
+                  "children": [
+                    {
+                      "text": "了解如何用 Node.js 开发简单的命令行应用"
+                    }
+                  ],
+                  "parent": "bulleted-list",
+                  "level": 0
+                },
+                {
+                  "type": "list-item",
+                  "children": [
+                    {
+                      "text": "学会利用 npm 社区的力量解决开发中遇到的难题，避免“重复造轮子”"
+                    }
+                  ],
+                  "parent": "bulleted-list",
+                  "level": 0
+                },
+                {
+                  "type": "list-item",
+                  "children": [
+                    {
+                      "text": "了解 npm scripts 的基本概念和使用"
+                    }
+                  ],
+                  "parent": "bulleted-list",
+                  "level": 0
+                },
+                {
+                  "type": "list-item",
+                  "children": [
+                    {
+                      "text": "初步了解 Node.js 的事件机制"
+                    }
+                  ],
+                  "parent": "bulleted-list",
+                  "level": 0
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "file",
+          "file": "timer.js",
+          "display": true,
+          "id": "YHcqzRu2V",
+          "children": [
+            {
+              "type": "explain",
+              "fixed": true,
+              "children": [
+                {
+                  "type": "heading-three",
+                  "children": [
+                    {
+                      "text": "运行 Node 代码"
+                    }
+                  ],
+                  "id": "qx33FNZj_"
+                },
+                {
+                  "type": "paragraph",
+                  "children": [
+                    {
+                      "text": "运行 Node 代码通常有两种方式：1）在 REPL 中交互式输入和运行；2）将代码写入 JS 文件，并用 Node 执行。"
+                    }
+                  ]
+                },
+                {
+                  "type": "note",
+                  "level": "info",
+                  "children": [
+                    {
+                      "type": "paragraph",
+                      "children": [
+                        {
+                          "text": "REPL 的全称是 Read Eval Print Loop（读取-执行-输出-循环），通常可以理解为"
+                        },
+                        {
+                          "bold": true,
+                          "text": "交互式解释器"
+                        },
+                        {
+                          "text": "，你可以输入任何表达式或语句，然后就会立刻执行并返回结果。如果你用过 Python 的 REPL 一定会觉得很熟悉。"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "type": "heading-four",
+                  "children": [
+                    {
+                      "text": "使用 REPL 快速体验"
+                    }
+                  ],
+                  "id": "jm9rBEqGS"
+                },
+                {
+                  "type": "paragraph",
+                  "children": [
+                    {
+                      "text": "如果你已经安装好了 Node，那么运行以下命令就可以输出 Node.js 的版本："
+                    }
+                  ]
+                },
+                {
+                  "type": "code-block",
+                  "lang": "bash",
+                  "children": [
+                    {
+                      "type": "code-line",
+                      "children": [
+                        {
+                          "text": "$ node -v"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "code-line",
+                      "children": [
+                        {
+                          "text": "v12.10.0"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "type": "paragraph",
+                  "children": [
+                    {
+                      "text": "然后，我们还可以进入 Node REPL（直接输入 "
+                    },
+                    {
+                      "code": true,
+                      "text": "node"
+                    },
+                    {
+                      "text": "），然后输入任何合法的 JavaScript 表达式或语句："
+                    }
+                  ]
+                },
+                {
+                  "type": "code-block",
+                  "lang": "",
+                  "children": [
+                    {
+                      "type": "code-line",
+                      "children": [
+                        {
+                          "text": "$ node"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "code-line",
+                      "children": [
+                        {
+                          "text": "Welcome to Node.js v12.10.0."
+                        }
+                      ]
+                    },
+                    {
+                      "type": "code-line",
+                      "children": [
+                        {
+                          "text": "Type \".help\" for more information."
+                        }
+                      ]
+                    },
+                    {
+                      "type": "code-line",
+                      "children": [
+                        {
+                          "text": "> 1 + 2"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "code-line",
+                      "children": [
+                        {
+                          "text": "3"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "code-line",
+                      "children": [
+                        {
+                          "text": "> var x = 10;"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "code-line",
+                      "children": [
+                        {
+                          "text": "undefined"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "code-line",
+                      "children": [
+                        {
+                          "text": "> x + 20"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "code-line",
+                      "children": [
+                        {
+                          "text": "30"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "code-line",
+                      "children": [
+                        {
+                          "text": "> console.log('Hello World');"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "code-line",
+                      "children": [
+                        {
+                          "text": "Hello World"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "code-line",
+                      "children": [
+                        {
+                          "text": "undefined"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "type": "paragraph",
+                  "children": [
+                    {
+                      "text": "有些行的开头是 "
+                    },
+                    {
+                      "code": true,
+                      "text": "> "
+                    },
+                    {
+                      "text": "，代表输入提示符，因此 "
+                    },
+                    {
+                      "code": true,
+                      "text": "> "
+                    },
+                    {
+                      "text": " 后面的都是我们要输入的命令，其他行则是表达式的返回值或标准输出（Standard Output，stdout）。运行的效果如下："
+                    }
+                  ]
+                },
+                {
+                  "type": "paragraph",
+                  "children": [
+                    {
+                      "type": "image",
+                      "url": ".tuture/assets/repl.gif",
+                      "children": [
+                        {
+                          "text": ""
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "type": "heading-four",
+                  "children": [
+                    {
+                      "text": "编写 Node 脚本"
+                    }
+                  ],
+                  "id": "AHTe3gd1u"
+                },
+                {
+                  "type": "paragraph",
+                  "children": [
+                    {
+                      "text": "REPL 通常用来进行一些代码的试验。在搭建具体应用时，更多的还是创建 Node 文件。我们先创建一个最简单的 Node.js 脚本文件，叫做 timer.js，代码如下："
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "diff-block",
+              "file": "timer.js",
+              "commit": "03752c9",
+              "hiddenLines": [],
+              "children": [
+                {
+                  "type": "paragraph",
+                  "children": [
+                    {
+                      "text": ""
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "explain",
+              "fixed": true,
+              "children": [
+                {
+                  "type": "paragraph",
+                  "children": [
+                    {
+                      "text": "然后用 Node 解释器执行这个文件："
+                    }
+                  ]
+                },
+                {
+                  "type": "code-block",
+                  "lang": "bash",
+                  "children": [
+                    {
+                      "type": "code-line",
+                      "children": [
+                        {
+                          "text": "$ node timer.js"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "code-line",
+                      "children": [
+                        {
+                          "text": "Hello World!"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "type": "paragraph",
+                  "children": [
+                    {
+                      "text": "看上去非常平淡无奇，但是这一行代码却凝聚了 Node.js 团队背后的心血。我们来对比一下，在浏览器和 Node 环境中执行这行代码有什么区别："
+                    }
+                  ]
+                },
+                {
+                  "type": "bulleted-list",
+                  "children": [
+                    {
+                      "type": "list-item",
+                      "children": [
+                        {
+                          "text": "在浏览器运行 "
+                        },
+                        {
+                          "code": true,
+                          "text": "console.log"
+                        },
+                        {
+                          "text": " 调用了 BOM，实际上执行的是 "
+                        },
+                        {
+                          "code": true,
+                          "text": "window.console.log('Hello World!')"
+                        }
+                      ],
+                      "parent": "bulleted-list",
+                      "level": 0
+                    },
+                    {
+                      "type": "list-item",
+                      "children": [
+                        {
+                          "text": "Node 首先在所处的操作系统中创建一个新的进程，然后向标准输出打印了指定的字符串， 实际上执行的是 "
+                        },
+                        {
+                          "code": true,
+                          "text": "process.stdout.write('Hello World!\\n')"
+                        }
+                      ],
+                      "parent": "bulleted-list",
+                      "level": 0
+                    }
+                  ]
+                },
+                {
+                  "type": "paragraph",
+                  "children": [
+                    {
+                      "text": "简而言之，Node 为我们提供了一个无需依赖浏览器、能够直接与操作系统进行交互的 JavaScript 代码运行环境！"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "explain",
+          "fixed": true,
+          "children": [
+            {
+              "type": "paragraph",
+              "children": [
+                {
+                  "text": ""
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "step",
+      "commit": "f9d3190",
+      "id": "MjEsnkI59",
+      "articleId": "892fa12",
+      "children": [
+        {
+          "type": "heading-two",
+          "commit": "f9d3190",
+          "id": "0a217tGUv",
+          "fixed": true,
+          "children": [
+            {
+              "text": "Node 全局对象初探"
+            }
+          ]
+        },
+        {
+          "type": "explain",
+          "fixed": true,
+          "children": [
+            {
+              "type": "paragraph",
+              "children": [
+                {
+                  "text": "如果你有过编写 JavaScript 的经验，那么你一定对全局对象不陌生。在浏览器中，我们有 "
+                },
+                {
+                  "code": true,
+                  "text": "document"
+                },
+                {
+                  "text": " 和 "
+                },
+                {
+                  "code": true,
+                  "text": "window"
+                },
+                {
+                  "text": "  等全局对象；而 Node 只包含 ECMAScript 和 V8，不包含 BOM 和 DOM，因此 Node 中不存在 "
+                },
+                {
+                  "code": true,
+                  "text": "document"
+                },
+                {
+                  "text": " 和 "
+                },
+                {
+                  "code": true,
+                  "text": "window"
+                },
+                {
+                  "text": "；取而代之，Node 专属的全局对象是 "
+                },
+                {
+                  "code": true,
+                  "text": "process"
+                },
+                {
+                  "text": "。在这一节中，我们将初步探索一番 Node 全局对象。"
+                }
+              ]
+            },
+            {
+              "type": "heading-three",
+              "children": [
+                {
+                  "text": "JavaScript 全局对象的分类"
+                }
+              ],
+              "id": "d-bm9Bkee"
+            },
+            {
+              "type": "paragraph",
+              "children": [
+                {
+                  "text": "在此之前，我们先看一下 JavaScript 各个运行环境的全局对象的比较，如下图所示："
+                }
+              ]
+            },
+            {
+              "type": "paragraph",
+              "children": [
+                {
+                  "type": "image",
+                  "url": ".tuture/assets/global-objects.png",
+                  "children": [
+                    {
+                      "text": ""
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "paragraph",
+              "children": [
+                {
+                  "text": "可以看到 JavaScript 全局对象可以分为四类："
+                }
+              ]
+            },
+            {
+              "type": "numbered-list",
+              "children": [
+                {
+                  "type": "list-item",
+                  "children": [
+                    {
+                      "text": "浏览器专属，例如 "
+                    },
+                    {
+                      "code": true,
+                      "text": "window"
+                    },
+                    {
+                      "text": "、"
+                    },
+                    {
+                      "code": true,
+                      "text": "alert"
+                    },
+                    {
+                      "text": " 等等；"
+                    }
+                  ],
+                  "parent": "numbered-list",
+                  "level": 0,
+                  "number": 1
+                },
+                {
+                  "type": "list-item",
+                  "children": [
+                    {
+                      "text": "Node 专属，例如 "
+                    },
+                    {
+                      "code": true,
+                      "text": "process"
+                    },
+                    {
+                      "text": "、"
+                    },
+                    {
+                      "code": true,
+                      "text": "__dirname"
+                    },
+                    {
+                      "text": "、"
+                    },
+                    {
+                      "code": true,
+                      "text": "__filename"
+                    },
+                    {
+                      "text": " 等等；"
+                    }
+                  ],
+                  "parent": "numbered-list",
+                  "level": 0,
+                  "number": 2
+                },
+                {
+                  "type": "list-item",
+                  "children": [
+                    {
+                      "text": "浏览器和 Node 共有，但是"
+                    },
+                    {
+                      "bold": true,
+                      "text": "实现方式不同"
+                    },
+                    {
+                      "text": "，例如 "
+                    },
+                    {
+                      "code": true,
+                      "text": "console"
+                    },
+                    {
+                      "text": "（第一节中已提到）、"
+                    },
+                    {
+                      "code": true,
+                      "text": "setTimeout"
+                    },
+                    {
+                      "text": "、"
+                    },
+                    {
+                      "code": true,
+                      "text": "setInterval"
+                    },
+                    {
+                      "text": " 等；"
+                    }
+                  ],
+                  "parent": "numbered-list",
+                  "level": 0,
+                  "number": 3
+                },
+                {
+                  "type": "list-item",
+                  "children": [
+                    {
+                      "text": "浏览器和 Node 共有，并且属于 "
+                    },
+                    {
+                      "bold": true,
+                      "text": "ECMAScript 语言定义"
+                    },
+                    {
+                      "text": "的一部分，例如 "
+                    },
+                    {
+                      "code": true,
+                      "text": "Date"
+                    },
+                    {
+                      "text": "、"
+                    },
+                    {
+                      "code": true,
+                      "text": "String"
+                    },
+                    {
+                      "text": "、"
+                    },
+                    {
+                      "code": true,
+                      "text": "Promise"
+                    },
+                    {
+                      "text": " 等；"
+                    }
+                  ],
+                  "parent": "numbered-list",
+                  "level": 0,
+                  "number": 4
+                }
+              ]
+            },
+            {
+              "type": "heading-three",
+              "children": [
+                {
+                  "text": "Node 专属全局对象解析"
+                }
+              ],
+              "id": "dPVajfaiw"
+            },
+            {
+              "type": "heading-four",
+              "children": [
+                {
+                  "code": true,
+                  "text": "process"
+                }
+              ],
+              "id": "fh_1nE6cQ"
+            },
+            {
+              "type": "paragraph",
+              "children": [
+                {
+                  "code": true,
+                  "text": "process"
+                },
+                {
+                  "text": " 全局对象可以说是 Node.js 的灵魂，它是管理当前 Node.js 进程状态的对象，提供了与操作系统的简单接口。"
+                }
+              ]
+            },
+            {
+              "type": "paragraph",
+              "children": [
+                {
+                  "text": "首先我们探索一下 "
+                },
+                {
+                  "code": true,
+                  "text": "process"
+                },
+                {
+                  "text": " 对象的重要属性。打开 Node REPL，然后我们查看一下 "
+                },
+                {
+                  "code": true,
+                  "text": "process"
+                },
+                {
+                  "text": " 对象的一些属性："
+                }
+              ]
+            },
+            {
+              "type": "bulleted-list",
+              "children": [
+                {
+                  "type": "list-item",
+                  "children": [
+                    {
+                      "code": true,
+                      "text": "pid"
+                    },
+                    {
+                      "text": "：进程编号"
+                    }
+                  ],
+                  "parent": "bulleted-list",
+                  "level": 0
+                },
+                {
+                  "type": "list-item",
+                  "children": [
+                    {
+                      "code": true,
+                      "text": "env"
+                    },
+                    {
+                      "text": "：系统环境变量"
+                    }
+                  ],
+                  "parent": "bulleted-list",
+                  "level": 0
+                },
+                {
+                  "type": "list-item",
+                  "children": [
+                    {
+                      "code": true,
+                      "text": "argv"
+                    },
+                    {
+                      "text": "：命令行执行此脚本时的输入参数"
+                    }
+                  ],
+                  "parent": "bulleted-list",
+                  "level": 0
+                },
+                {
+                  "type": "list-item",
+                  "children": [
+                    {
+                      "code": true,
+                      "text": "platform"
+                    },
+                    {
+                      "text": "：当前操作系统的平台"
+                    }
+                  ],
+                  "parent": "bulleted-list",
+                  "level": 0
+                }
+              ]
+            },
+            {
+              "type": "note",
+              "level": "info",
+              "children": [
+                {
+                  "type": "paragraph",
+                  "children": [
+                    {
+                      "text": "可以在 Node REPL 中尝试一下这些对象。像上面说的那样进入 REPL（你的输出很有可能跟我的不一样）："
+                    }
+                  ]
+                },
+                {
+                  "type": "code-block",
+                  "lang": "bash",
+                  "children": [
+                    {
+                      "type": "code-line",
+                      "children": [
+                        {
+                          "text": "$ node"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "code-line",
+                      "children": [
+                        {
+                          "text": "Welcome to Node.js v12.10.0."
+                        }
+                      ]
+                    },
+                    {
+                      "type": "code-line",
+                      "children": [
+                        {
+                          "text": "Type \".help\" for more information."
+                        }
+                      ]
+                    },
+                    {
+                      "type": "code-line",
+                      "children": [
+                        {
+                          "text": "> process.pid"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "code-line",
+                      "children": [
+                        {
+                          "text": "3"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "code-line",
+                      "children": [
+                        {
+                          "text": "> process.platform"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "code-line",
+                      "children": [
+                        {
+                          "text": "'darwin'"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "heading-four",
+              "children": [
+                {
+                  "code": true,
+                  "text": "Buffer"
+                }
+              ],
+              "id": "L39tzU47w"
+            },
+            {
+              "type": "paragraph",
+              "children": [
+                {
+                  "code": true,
+                  "text": "Buffer"
+                },
+                {
+                  "text": " 全局对象让 JavaScript 也能够轻松地处理二进制数据流，结合 Node 的流接口（Stream），能够实现高效的二进制文件处理。这篇教程不会涉及 "
+                },
+                {
+                  "code": true,
+                  "text": "Buffer"
+                },
+                {
+                  "text": "。"
+                }
+              ]
+            },
+            {
+              "type": "heading-four",
+              "children": [
+                {
+                  "code": true,
+                  "text": "__filename"
+                },
+                {
+                  "text": " 和 "
+                },
+                {
+                  "code": true,
+                  "text": "__dirname"
+                }
+              ],
+              "id": "GzkX5IDvw"
+            },
+            {
+              "type": "paragraph",
+              "children": [
+                {
+                  "text": "分别代表当前所运行 Node 脚本的文件路径和所在目录路径。"
+                }
+              ]
+            },
+            {
+              "type": "note",
+              "level": "warning",
+              "children": [
+                {
+                  "type": "paragraph",
+                  "children": [
+                    {
+                      "code": true,
+                      "text": "__filename"
+                    },
+                    {
+                      "text": " 和 "
+                    },
+                    {
+                      "code": true,
+                      "text": "__dirname"
+                    },
+                    {
+                      "text": " 只能在 Node 脚本文件中使用，在 REPL 中是没有定义的。"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "file",
+          "file": "timer.js",
+          "display": true,
+          "id": "Q9ODLZ2tO3",
+          "children": [
+            {
+              "type": "explain",
+              "fixed": true,
+              "children": [
+                {
+                  "type": "heading-three",
+                  "children": [
+                    {
+                      "text": "使用 Node 全局对象"
+                    }
+                  ],
+                  "id": "DWFmT2p4gk"
+                },
+                {
+                  "type": "paragraph",
+                  "children": [
+                    {
+                      "text": "接下来我们将在刚才写的脚本文件中使用 Node 全局对象，分别涵盖上面的三类："
+                    }
+                  ]
+                },
+                {
+                  "type": "bulleted-list",
+                  "children": [
+                    {
+                      "type": "list-item",
+                      "children": [
+                        {
+                          "text": "Node 专属："
+                        },
+                        {
+                          "code": true,
+                          "text": "process"
+                        }
+                      ],
+                      "parent": "bulleted-list",
+                      "level": 0
+                    },
+                    {
+                      "type": "list-item",
+                      "children": [
+                        {
+                          "text": "实现方式不同的共有全局对象："
+                        },
+                        {
+                          "code": true,
+                          "text": "console"
+                        },
+                        {
+                          "text": " 和 "
+                        },
+                        {
+                          "code": true,
+                          "text": "setTimeout"
+                        }
+                      ],
+                      "parent": "bulleted-list",
+                      "level": 0
+                    },
+                    {
+                      "type": "list-item",
+                      "children": [
+                        {
+                          "text": "ECMAScript 语言定义的全局对象："
+                        },
+                        {
+                          "code": true,
+                          "text": "Date"
+                        }
+                      ],
+                      "parent": "bulleted-list",
+                      "level": 0
+                    }
+                  ]
+                },
+                {
+                  "type": "note",
+                  "level": "info",
+                  "children": [
+                    {
+                      "type": "paragraph",
+                      "children": [
+                        {
+                          "code": true,
+                          "text": "setTimeout"
+                        },
+                        {
+                          "text": " 用于在一定时间后执行特定的逻辑，第一个参数为时间到了之后要执行的函数（回调函数），第二个参数是等待时间。例如："
+                        }
+                      ]
+                    },
+                    {
+                      "type": "code-block",
+                      "lang": "javascript",
+                      "children": [
+                        {
+                          "type": "code-line",
+                          "children": [
+                            {
+                              "text": "setTimeout(someFunction, 1000);"
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "type": "paragraph",
+                      "children": [
+                        {
+                          "text": "就会在 "
+                        },
+                        {
+                          "code": true,
+                          "text": "1000"
+                        },
+                        {
+                          "text": " 毫秒后执行 "
+                        },
+                        {
+                          "code": true,
+                          "text": "someFunction"
+                        },
+                        {
+                          "text": " 函数。"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "type": "paragraph",
+                  "children": [
+                    {
+                      "text": "代码如下："
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "diff-block",
+              "file": "timer.js",
+              "commit": "f9d3190",
+              "hiddenLines": [],
+              "children": [
+                {
+                  "type": "paragraph",
+                  "children": [
+                    {
+                      "text": ""
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "explain",
+              "fixed": true,
+              "children": [
+                {
+                  "type": "paragraph",
+                  "children": [
+                    {
+                      "text": "运行以上脚本，在我机器上的输出如下（Hello World! 会延迟三秒输出）："
+                    }
+                  ]
+                },
+                {
+                  "type": "code-block",
+                  "lang": "text",
+                  "children": [
+                    {
+                      "type": "code-line",
+                      "children": [
+                        {
+                          "text": "$ node timer.js"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "code-line",
+                      "children": [
+                        {
+                          "text": "当前进程 ID 7310"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "code-line",
+                      "children": [
+                        {
+                          "text": "当前脚本路径 /Users/mRc/Tutorials/nodejs-quickstart/timer.js"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "code-line",
+                      "children": [
+                        {
+                          "text": "当前时间 12/4/2019, 9:49:28 AM"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "code-line",
+                      "children": [
+                        {
+                          "text": "Hello World!"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "type": "paragraph",
+                  "children": [
+                    {
+                      "text": "从上面的代码中也可以一瞥 Node.js 异步的魅力：在 "
+                    },
+                    {
+                      "code": true,
+                      "text": "setTimeout"
+                    },
+                    {
+                      "text": " 等待的 3 秒内，程序并"
+                    },
+                    {
+                      "bold": true,
+                      "text": "没有阻塞"
+                    },
+                    {
+                      "text": "，而是"
+                    },
+                    {
+                      "bold": true,
+                      "text": "继续向下执行"
+                    },
+                    {
+                      "text": "，这就是 Node.js 的异步非阻塞！"
+                    }
+                  ]
+                },
+                {
+                  "type": "note",
+                  "level": "info",
+                  "children": [
+                    {
+                      "type": "paragraph",
+                      "children": [
+                        {
+                          "text": "在实际的应用环境中，往往有很多 I/O 操作（例如网络请求、数据库查询等等）需要耗费相当多的时间，而 Node.js 能够在等待的同时继续处理新的请求，大大提高了系统的吞吐率。"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "type": "paragraph",
+                  "children": [
+                    {
+                      "text": "在后续教程中，我们会出一篇深入讲解 Node.js 异步编程的教程，敬请期待！"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "explain",
+          "fixed": true,
+          "children": [
+            {
+              "type": "paragraph",
+              "children": [
+                {
+                  "text": ""
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "step",
+      "commit": "98a736d",
+      "id": "PQZf8wdPIV",
+      "articleId": "892fa12",
+      "children": [
+        {
+          "type": "heading-two",
+          "commit": "98a736d",
+          "id": "xy0k03JXQi",
+          "fixed": true,
+          "children": [
+            {
+              "text": "理解 Node 模块机制"
+            }
+          ]
+        },
+        {
+          "type": "explain",
+          "fixed": true,
+          "children": [
+            {
+              "type": "paragraph",
+              "children": [
+                {
+                  "text": "Node.js 相比之前的浏览器 JavaScript 的另一个重点改变就是：模块机制的引入。这一节内容很长，但却是入门 Node.js 最为关键的一步，加油吧💪！"
+                }
+              ]
+            },
+            {
+              "type": "heading-three",
+              "children": [
+                {
+                  "text": "JavaScript 的模块化之路"
+                }
+              ],
+              "id": "poNCOo8GLS"
+            },
+            {
+              "type": "paragraph",
+              "children": [
+                {
+                  "text": "Eric Raymond 在《UNIX编程艺术》中定义了"
+                },
+                {
+                  "bold": true,
+                  "text": "模块性"
+                },
+                {
+                  "text": "（Modularity）的规则："
+                }
+              ]
+            },
+            {
+              "type": "block-quote",
+              "children": [
+                {
+                  "type": "paragraph",
+                  "children": [
+                    {
+                      "text": "开发人员应使用通过定义明确的接口连接的简单零件来构建程序，因此问题是局部的，可以在将来的版本中替换程序的某些部分以支持新功能。 该规则旨在节省调试复杂、冗长且不可读的复杂代码的时间。"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "paragraph",
+              "children": [
+                {
+                  "text": "“分而治之”的思想在计算机的世界非常普遍，但是在 ES2015 标准出现以前（"
+                },
+                {
+                  "italic": true,
+                  "text": "不了解没关系，后面会讲到"
+                },
+                {
+                  "text": "）， JavaScript 语言定义本身并没有模块化的机制，构建复杂应用也没有统一的接口标准。人们通常使用一系列的 "
+                },
+                {
+                  "code": true,
+                  "text": "<script>"
+                },
+                {
+                  "text": " 标签来导入相应的模块（依赖）："
+                }
+              ]
+            },
+            {
+              "type": "code-block",
+              "lang": "html",
+              "children": [
+                {
+                  "type": "code-line",
+                  "children": [
+                    {
+                      "text": "<head>"
+                    }
+                  ]
+                },
+                {
+                  "type": "code-line",
+                  "children": [
+                    {
+                      "text": "  <script src=\"fileA.js\"></script>"
+                    }
+                  ]
+                },
+                {
+                  "type": "code-line",
+                  "children": [
+                    {
+                      "text": "  <script src=\"fileB.js\"></script>"
+                    }
+                  ]
+                },
+                {
+                  "type": "code-line",
+                  "children": [
+                    {
+                      "text": "</head>"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "paragraph",
+              "children": [
+                {
+                  "text": "这种组织 JS 代码的方式有很多问题，其中最显著的包括："
+                }
+              ]
+            },
+            {
+              "type": "bulleted-list",
+              "children": [
+                {
+                  "type": "list-item",
+                  "children": [
+                    {
+                      "text": "导入的多个 JS 文件直接作用于全局命名空间，很容易产生"
+                    },
+                    {
+                      "bold": true,
+                      "text": "命名冲突"
+                    }
+                  ],
+                  "parent": "bulleted-list",
+                  "level": 0
+                },
+                {
+                  "type": "list-item",
+                  "children": [
+                    {
+                      "text": "导入的 JS 文件之间不能相互访问，例如 fileB.js 中无法访问 fileA.js 中的内容，很不方便"
+                    }
+                  ],
+                  "parent": "bulleted-list",
+                  "level": 0
+                },
+                {
+                  "type": "list-item",
+                  "children": [
+                    {
+                      "text": "导入的 "
+                    },
+                    {
+                      "code": true,
+                      "text": "<script>"
+                    },
+                    {
+                      "text": " 无法被轻易去除或修改"
+                    }
+                  ],
+                  "parent": "bulleted-list",
+                  "level": 0
+                }
+              ]
+            },
+            {
+              "type": "paragraph",
+              "children": [
+                {
+                  "text": "人们渐渐认识到了 JavaScript 模块化机制的缺失带来的问题，于是两大模块化规范被提出："
+                }
+              ]
+            },
+            {
+              "type": "numbered-list",
+              "children": [
+                {
+                  "type": "list-item",
+                  "children": [
+                    {
+                      "link": true,
+                      "url": "https://github.com/amdjs/amdjs-api/blob/master/AMD.md",
+                      "text": "AMD（Asynchronous Module Definition）规范"
+                    },
+                    {
+                      "text": "，在浏览器中使用较为普遍，最经典的实现包括 "
+                    },
+                    {
+                      "link": true,
+                      "url": "https://requirejs.org/",
+                      "text": "RequireJS"
+                    },
+                    {
+                      "text": "；"
+                    }
+                  ],
+                  "parent": "numbered-list",
+                  "level": 0,
+                  "number": 1
+                },
+                {
+                  "type": "list-item",
+                  "children": [
+                    {
+                      "link": true,
+                      "url": "http://wiki.commonjs.org/wiki/CommonJS",
+                      "text": "CommonJS 规范"
+                    },
+                    {
+                      "text": "，致力于为 JavaScript 生态圈提供统一的接口 API，Node.js 所实现的正是这一模块标准。"
+                    }
+                  ],
+                  "parent": "numbered-list",
+                  "level": 0,
+                  "number": 2
+                }
+              ]
+            },
+            {
+              "type": "note",
+              "level": "info",
+              "children": [
+                {
+                  "type": "paragraph",
+                  "children": [
+                    {
+                      "text": "ECMAScript 2015（也就是大家常说的 ES6）标准为 JavaScript 语言引入了全新的模块机制（称为 ES 模块，全称 ECMAScript Modules），并提供了 "
+                    },
+                    {
+                      "code": true,
+                      "text": "import"
+                    },
+                    {
+                      "text": " 和 "
+                    },
+                    {
+                      "code": true,
+                      "text": "export"
+                    },
+                    {
+                      "text": " 关键词，如果感兴趣可参考"
+                    },
+                    {
+                      "link": true,
+                      "url": "https://zhuanlan.zhihu.com/p/36358695",
+                      "text": "这篇文章"
+                    },
+                    {
+                      "text": "。但是截止目前，Node.js 对 ES 模块的支持还处于"
+                    },
+                    {
+                      "bold": true,
+                      "text": "试验阶段"
+                    },
+                    {
+                      "text": "，因此这篇文章不会讲解、也不提倡使用。"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "heading-three",
+              "children": [
+                {
+                  "text": "什么是 Node 模块"
+                }
+              ],
+              "id": "MlSJfdqjAO"
+            },
+            {
+              "type": "paragraph",
+              "children": [
+                {
+                  "text": "在正式分析 Node 模块机制之前，我们需要明确定义什么是 Node 模块。通常来说，Node 模块可分为两大类："
+                }
+              ]
+            },
+            {
+              "type": "bulleted-list",
+              "children": [
+                {
+                  "type": "list-item",
+                  "children": [
+                    {
+                      "bold": true,
+                      "text": "核心模块"
+                    },
+                    {
+                      "text": "：Node 提供的内置模块，在安装 Node 时已经被编译成"
+                    },
+                    {
+                      "bold": true,
+                      "text": "二进制可执行文件"
+                    }
+                  ],
+                  "parent": "bulleted-list",
+                  "level": 0
+                },
+                {
+                  "type": "list-item",
+                  "children": [
+                    {
+                      "bold": true,
+                      "text": "文件模块"
+                    },
+                    {
+                      "text": "：用户编写的模块，可以是自己写的，也可以是通过 npm 安装的（后面会讲到）。"
+                    }
+                  ],
+                  "parent": "bulleted-list",
+                  "level": 0
+                }
+              ]
+            },
+            {
+              "type": "paragraph",
+              "children": [
+                {
+                  "text": "其中，文件模块可以是一个"
+                },
+                {
+                  "bold": true,
+                  "text": "单独的文件"
+                },
+                {
+                  "text": "（以 "
+                },
+                {
+                  "code": true,
+                  "text": ".js"
+                },
+                {
+                  "text": "、"
+                },
+                {
+                  "code": true,
+                  "text": ".node"
+                },
+                {
+                  "text": " 或 "
+                },
+                {
+                  "code": true,
+                  "text": ".json"
+                },
+                {
+                  "text": " 结尾），或者是一个"
+                },
+                {
+                  "bold": true,
+                  "text": "目录"
+                },
+                {
+                  "text": "。当这个模块是一个目录时，"
+                },
+                {
+                  "bold": true,
+                  "text": "模块名就是目录名"
+                },
+                {
+                  "text": "，有两种情况："
+                }
+              ]
+            },
+            {
+              "type": "numbered-list",
+              "children": [
+                {
+                  "type": "list-item",
+                  "children": [
+                    {
+                      "text": "目录中有一个 package.json 文件，则这个 Node 模块的入口就是其中 "
+                    },
+                    {
+                      "code": true,
+                      "text": "main"
+                    },
+                    {
+                      "text": " 字段指向的文件；"
+                    }
+                  ],
+                  "parent": "numbered-list",
+                  "level": 0,
+                  "number": 1
+                },
+                {
+                  "type": "list-item",
+                  "children": [
+                    {
+                      "text": "目录中有一个名为 index 的文件，扩展名为 "
+                    },
+                    {
+                      "code": true,
+                      "text": ".js"
+                    },
+                    {
+                      "text": "、"
+                    },
+                    {
+                      "code": true,
+                      "text": ".node"
+                    },
+                    {
+                      "text": " 或 "
+                    },
+                    {
+                      "code": true,
+                      "text": ".json"
+                    },
+                    {
+                      "text": "，此文件则为模块入口文件。"
+                    }
+                  ],
+                  "parent": "numbered-list",
+                  "level": 0,
+                  "number": 2
+                }
+              ]
+            },
+            {
+              "type": "paragraph",
+              "children": [
+                {
+                  "text": "一下子消化不了没关系，可以先阅读后面的内容，忘记了模块的定义可以再回过来看看哦。"
+                }
+              ]
+            },
+            {
+              "type": "heading-three",
+              "children": [
+                {
+                  "text": "Node 模块机制浅析"
+                }
+              ],
+              "id": "uF7H3EXe7d"
+            },
+            {
+              "type": "paragraph",
+              "children": [
+                {
+                  "text": "知道了 Node 模块的具体定义后，我们来了解一下 Node 具体是怎样实现模块机制的。具体而言，Node 引入了三个新的全局对象（还是 Node 专属哦）：1）"
+                },
+                {
+                  "code": true,
+                  "text": "require"
+                },
+                {
+                  "text": "；2） "
+                },
+                {
+                  "code": true,
+                  "text": "exports"
+                },
+                {
+                  "text": " 和 3）"
+                },
+                {
+                  "code": true,
+                  "text": "module"
+                },
+                {
+                  "text": "。下面我们逐一讲解。"
+                }
+              ]
+            },
+            {
+              "type": "paragraph",
+              "children": [
+                {
+                  "bold": true,
+                  "code": true,
+                  "text": "require"
+                }
+              ]
+            },
+            {
+              "type": "paragraph",
+              "children": [
+                {
+                  "code": true,
+                  "text": "require"
+                },
+                {
+                  "text": " 用于导入其他 Node 模块，其参数接受一个字符串代表模块的名称或路径，通常被称为"
+                },
+                {
+                  "bold": true,
+                  "text": "模块标识符"
+                },
+                {
+                  "text": "。具体有以下三种形式："
+                }
+              ]
+            },
+            {
+              "type": "bulleted-list",
+              "children": [
+                {
+                  "type": "list-item",
+                  "children": [
+                    {
+                      "text": "直接写模块名称，通常是核心模块或第三方文件模块，例如 "
+                    },
+                    {
+                      "code": true,
+                      "text": "os"
+                    },
+                    {
+                      "text": "、"
+                    },
+                    {
+                      "code": true,
+                      "text": "express"
+                    },
+                    {
+                      "text": " 等"
+                    }
+                  ],
+                  "parent": "bulleted-list",
+                  "level": 0
+                },
+                {
+                  "type": "list-item",
+                  "children": [
+                    {
+                      "text": "模块的相对路径，指向项目中其他 Node 模块，例如 "
+                    },
+                    {
+                      "code": true,
+                      "text": "./utils"
+                    }
+                  ],
+                  "parent": "bulleted-list",
+                  "level": 0
+                },
+                {
+                  "type": "list-item",
+                  "children": [
+                    {
+                      "text": "模块的绝对路径（"
+                    },
+                    {
+                      "bold": true,
+                      "text": "不推荐！"
+                    },
+                    {
+                      "text": "），例如 "
+                    },
+                    {
+                      "code": true,
+                      "text": "/home/xxx/MyProject/utils"
+                    }
+                  ],
+                  "parent": "bulleted-list",
+                  "level": 0
+                }
+              ]
+            },
+            {
+              "type": "note",
+              "level": "info",
+              "children": [
+                {
+                  "type": "paragraph",
+                  "children": [
+                    {
+                      "text": "在通过路径导入模块时，通常省略文件名中的 "
+                    },
+                    {
+                      "code": true,
+                      "text": ".js"
+                    },
+                    {
+                      "text": " 后缀。"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "paragraph",
+              "children": [
+                {
+                  "text": "代码示例如下："
+                }
+              ]
+            },
+            {
+              "type": "code-block",
+              "lang": "javascript",
+              "children": [
+                {
+                  "type": "code-line",
+                  "children": [
+                    {
+                      "text": "// 导入内置库或第三方模块"
+                    }
+                  ]
+                },
+                {
+                  "type": "code-line",
+                  "children": [
+                    {
+                      "text": "const os = require('os');"
+                    }
+                  ]
+                },
+                {
+                  "type": "code-line",
+                  "children": [
+                    {
+                      "text": "const express = require('express');"
+                    }
+                  ]
+                },
+                {
+                  "type": "code-line",
+                  "children": [
+                    {
+                      "text": ""
+                    }
+                  ]
+                },
+                {
+                  "type": "code-line",
+                  "children": [
+                    {
+                      "text": "// 通过相对路径导入其他模块"
+                    }
+                  ]
+                },
+                {
+                  "type": "code-line",
+                  "children": [
+                    {
+                      "text": "const utils = require('./utils');"
+                    }
+                  ]
+                },
+                {
+                  "type": "code-line",
+                  "children": [
+                    {
+                      "text": ""
+                    }
+                  ]
+                },
+                {
+                  "type": "code-line",
+                  "children": [
+                    {
+                      "text": "// 通过绝对路径导入其他模块"
+                    }
+                  ]
+                },
+                {
+                  "type": "code-line",
+                  "children": [
+                    {
+                      "text": "const utils = require('/home/xxx/MyProject/utils');"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "paragraph",
+              "children": [
+                {
+                  "text": "你也许会好奇，通过名称导入 Node 模块的时候（例如 "
+                },
+                {
+                  "code": true,
+                  "text": "express"
+                },
+                {
+                  "text": "），是从哪里找到这个模块的？实际上每个模块都有个路径搜索列表 "
+                },
+                {
+                  "code": true,
+                  "text": "module.paths"
+                },
+                {
+                  "text": "，在后面讲解 "
+                },
+                {
+                  "code": true,
+                  "text": "module"
+                },
+                {
+                  "text": " 对象的时候就会一清二楚了。"
+                }
+              ]
+            },
+            {
+              "type": "paragraph",
+              "children": [
+                {
+                  "bold": true,
+                  "code": true,
+                  "text": "exports"
+                }
+              ]
+            },
+            {
+              "type": "paragraph",
+              "children": [
+                {
+                  "text": "我们已经学会了用 "
+                },
+                {
+                  "code": true,
+                  "text": "require"
+                },
+                {
+                  "text": " 导入其他模块中的内容，那么怎么写一个 Node 模块，并导出其中内容呢？答案就是用 "
+                },
+                {
+                  "code": true,
+                  "text": "exports"
+                },
+                {
+                  "text": " 对象。"
+                }
+              ]
+            },
+            {
+              "type": "paragraph",
+              "children": [
+                {
+                  "text": "例如我们写一个 Node 模块 myModule.js："
+                }
+              ]
+            },
+            {
+              "type": "code-block",
+              "lang": "javascript",
+              "children": [
+                {
+                  "type": "code-line",
+                  "children": [
+                    {
+                      "text": "// myModule.js"
+                    }
+                  ]
+                },
+                {
+                  "type": "code-line",
+                  "children": [
+                    {
+                      "text": "function add(a, b) {"
+                    }
+                  ]
+                },
+                {
+                  "type": "code-line",
+                  "children": [
+                    {
+                      "text": "  return a + b;"
+                    }
+                  ]
+                },
+                {
+                  "type": "code-line",
+                  "children": [
+                    {
+                      "text": "}"
+                    }
+                  ]
+                },
+                {
+                  "type": "code-line",
+                  "children": [
+                    {
+                      "text": ""
+                    }
+                  ]
+                },
+                {
+                  "type": "code-line",
+                  "children": [
+                    {
+                      "text": "// 导出函数 add"
+                    }
+                  ]
+                },
+                {
+                  "type": "code-line",
+                  "children": [
+                    {
+                      "text": "exports.add = add;"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "paragraph",
+              "children": [
+                {
+                  "text": "通过将 "
+                },
+                {
+                  "code": true,
+                  "text": "add"
+                },
+                {
+                  "text": " 函数添加到 "
+                },
+                {
+                  "code": true,
+                  "text": "exports"
+                },
+                {
+                  "text": " 对象中，外面的模块就可以通过以下代码使用这个函数。在 myModule.js 旁边创建一个 main.js，代码如下："
+                }
+              ]
+            },
+            {
+              "type": "code-block",
+              "lang": "javascript",
+              "children": [
+                {
+                  "type": "code-line",
+                  "children": [
+                    {
+                      "text": "// main.js"
+                    }
+                  ]
+                },
+                {
+                  "type": "code-line",
+                  "children": [
+                    {
+                      "text": "const myModule = require('./myModule');"
+                    }
+                  ]
+                },
+                {
+                  "type": "code-line",
+                  "children": [
+                    {
+                      "text": ""
+                    }
+                  ]
+                },
+                {
+                  "type": "code-line",
+                  "children": [
+                    {
+                      "text": "// 调用 myModule.js 中的 add 函数"
+                    }
+                  ]
+                },
+                {
+                  "type": "code-line",
+                  "children": [
+                    {
+                      "text": "myModule.add(1, 2);"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "note",
+              "level": "info",
+              "children": [
+                {
+                  "type": "paragraph",
+                  "children": [
+                    {
+                      "text": "如果你熟悉 ECMAScript 6 中的"
+                    },
+                    {
+                      "link": true,
+                      "url": "http://es6.ruanyifeng.com/#docs/destructuring",
+                      "text": "解构赋值"
+                    },
+                    {
+                      "text": "，那么可以用更优雅的方式获取 "
+                    },
+                    {
+                      "code": true,
+                      "text": "add"
+                    },
+                    {
+                      "text": " 函数："
+                    }
+                  ]
+                },
+                {
+                  "type": "code-block",
+                  "lang": "javascript",
+                  "children": [
+                    {
+                      "type": "code-line",
+                      "children": [
+                        {
+                          "text": "const { add } = require('./myModule');"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "paragraph",
+              "children": [
+                {
+                  "bold": true,
+                  "code": true,
+                  "text": "module"
+                }
+              ]
+            },
+            {
+              "type": "paragraph",
+              "children": [
+                {
+                  "text": "通过 "
+                },
+                {
+                  "code": true,
+                  "text": "require"
+                },
+                {
+                  "text": " 和 "
+                },
+                {
+                  "code": true,
+                  "text": "exports"
+                },
+                {
+                  "text": "，我们已经知道了如何导入、导出 Node 模块中的内容，但是你可能还是觉得 Node 模块机制有一丝丝神秘的感觉。接下来，我们将掀开这神秘的面纱，了解一下背后的主角——"
+                },
+                {
+                  "code": true,
+                  "text": "module"
+                },
+                {
+                  "text": " 模块对象。"
+                }
+              ]
+            },
+            {
+              "type": "paragraph",
+              "children": [
+                {
+                  "text": "我们可以在刚才的 myModule.js 文件的最后加上这一行代码："
+                }
+              ]
+            },
+            {
+              "type": "code-block",
+              "lang": "javascript",
+              "children": [
+                {
+                  "type": "code-line",
+                  "children": [
+                    {
+                      "text": "console.log('module myModule:', module);"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "paragraph",
+              "children": [
+                {
+                  "text": "在 main.js 最后加上："
+                }
+              ]
+            },
+            {
+              "type": "code-block",
+              "lang": "javascript",
+              "children": [
+                {
+                  "type": "code-line",
+                  "children": [
+                    {
+                      "text": "console.log('module main:', module);"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "paragraph",
+              "children": [
+                {
+                  "text": "运行后会打印出来这样的内容（左边是 myModule，右边是 module）："
+                }
+              ]
+            },
+            {
+              "type": "paragraph",
+              "children": [
+                {
+                  "type": "image",
+                  "url": ".tuture/assets/module.png",
+                  "children": [
+                    {
+                      "text": ""
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "paragraph",
+              "children": [
+                {
+                  "text": "可以看到 "
+                },
+                {
+                  "code": true,
+                  "text": "module"
+                },
+                {
+                  "text": " 对象有以下字段："
+                }
+              ]
+            },
+            {
+              "type": "bulleted-list",
+              "children": [
+                {
+                  "type": "list-item",
+                  "children": [
+                    {
+                      "code": true,
+                      "text": "id"
+                    },
+                    {
+                      "text": "：模块的唯一标识符，如果是被运行的主程序（例如 main.js）则为 "
+                    },
+                    {
+                      "code": true,
+                      "text": "."
+                    },
+                    {
+                      "text": "，如果是被导入的模块（例如 myModule.js）则等同于此文件名（即下面的 "
+                    },
+                    {
+                      "code": true,
+                      "text": "filename"
+                    },
+                    {
+                      "text": " 字段）"
+                    }
+                  ],
+                  "parent": "bulleted-list",
+                  "level": 0
+                },
+                {
+                  "type": "list-item",
+                  "children": [
+                    {
+                      "code": true,
+                      "text": "path"
+                    },
+                    {
+                      "text": " 和 "
+                    },
+                    {
+                      "code": true,
+                      "text": "filename"
+                    },
+                    {
+                      "text": "：模块所在路径和文件名，没啥好说的"
+                    }
+                  ],
+                  "parent": "bulleted-list",
+                  "level": 0
+                },
+                {
+                  "type": "list-item",
+                  "children": [
+                    {
+                      "code": true,
+                      "text": "exports"
+                    },
+                    {
+                      "text": "：模块所导出的内容，实际上"
+                    },
+                    {
+                      "bold": true,
+                      "text": "之前的 "
+                    },
+                    {
+                      "bold": true,
+                      "code": true,
+                      "text": "exports"
+                    },
+                    {
+                      "bold": true,
+                      "text": " 对象是指向 "
+                    },
+                    {
+                      "bold": true,
+                      "code": true,
+                      "text": "module.exports"
+                    },
+                    {
+                      "bold": true,
+                      "text": " 的引用"
+                    },
+                    {
+                      "text": "。例如对于 myModule.js，刚才我们导出了 "
+                    },
+                    {
+                      "code": true,
+                      "text": "add"
+                    },
+                    {
+                      "text": " 函数，因此出现在了这个 "
+                    },
+                    {
+                      "code": true,
+                      "text": "exports"
+                    },
+                    {
+                      "text": " 字段里面；而 main.js 没有导出任何内容，因此 "
+                    },
+                    {
+                      "code": true,
+                      "text": "exports"
+                    },
+                    {
+                      "text": " 字段为空"
+                    }
+                  ],
+                  "parent": "bulleted-list",
+                  "level": 0
+                },
+                {
+                  "type": "list-item",
+                  "children": [
+                    {
+                      "code": true,
+                      "text": "parent"
+                    },
+                    {
+                      "text": " 和 "
+                    },
+                    {
+                      "code": true,
+                      "text": "children"
+                    },
+                    {
+                      "text": "：用于记录模块之间的导入关系，例如 main.js 中 "
+                    },
+                    {
+                      "code": true,
+                      "text": "require"
+                    },
+                    {
+                      "text": " 了 myModule.js，那么 main 就是 myModule 的 "
+                    },
+                    {
+                      "code": true,
+                      "text": "parent"
+                    },
+                    {
+                      "text": "，myModule 就是 main 的 "
+                    },
+                    {
+                      "code": true,
+                      "text": "children"
+                    }
+                  ],
+                  "parent": "bulleted-list",
+                  "level": 0
+                },
+                {
+                  "type": "list-item",
+                  "children": [
+                    {
+                      "code": true,
+                      "text": "loaded"
+                    },
+                    {
+                      "text": "：模块是否被加载，从上图中可以看出只有 "
+                    },
+                    {
+                      "code": true,
+                      "text": "children"
+                    },
+                    {
+                      "text": " 中列出的模块才会被加载"
+                    }
+                  ],
+                  "parent": "bulleted-list",
+                  "level": 0
+                },
+                {
+                  "type": "list-item",
+                  "children": [
+                    {
+                      "code": true,
+                      "text": "paths"
+                    },
+                    {
+                      "text": "：这个就是 Node "
+                    },
+                    {
+                      "bold": true,
+                      "text": "搜索文件模块的路径列表"
+                    },
+                    {
+                      "text": "，Node 会从第一个路径到最后一个路径依次搜索指定的 Node 模块，找到了则导入，找不到就会报错"
+                    }
+                  ],
+                  "parent": "bulleted-list",
+                  "level": 0
+                }
+              ]
+            },
+            {
+              "type": "note",
+              "level": "info",
+              "children": [
+                {
+                  "type": "paragraph",
+                  "children": [
+                    {
+                      "text": "如果你仔细观察，会发现 Node 文件模块查找路径（"
+                    },
+                    {
+                      "code": true,
+                      "text": "module.paths"
+                    },
+                    {
+                      "text": "）的方式其实是这样的：先找当前目录下的 node_modules，没有的话再找上一级目录的 node_modules，还没找到的话就一直向上找，直到根目录下的 node_modules。"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "paragraph",
+              "children": [
+                {
+                  "bold": true,
+                  "text": "深入理解 "
+                },
+                {
+                  "bold": true,
+                  "code": true,
+                  "text": "module.exports"
+                }
+              ]
+            },
+            {
+              "type": "paragraph",
+              "children": [
+                {
+                  "text": "之前我们提到，"
+                },
+                {
+                  "code": true,
+                  "text": "exports"
+                },
+                {
+                  "text": " 对象本质上是 "
+                },
+                {
+                  "code": true,
+                  "text": "module.exports"
+                },
+                {
+                  "text": " 的引用。也就是说，下面两行代码是等价的："
+                }
+              ]
+            },
+            {
+              "type": "code-block",
+              "lang": "javascript",
+              "children": [
+                {
+                  "type": "code-line",
+                  "children": [
+                    {
+                      "text": "// 导出 add 函数"
+                    }
+                  ]
+                },
+                {
+                  "type": "code-line",
+                  "children": [
+                    {
+                      "text": "exports.add = add;"
+                    }
+                  ]
+                },
+                {
+                  "type": "code-line",
+                  "children": [
+                    {
+                      "text": ""
+                    }
+                  ]
+                },
+                {
+                  "type": "code-line",
+                  "children": [
+                    {
+                      "text": "// 和上面一行代码是一样的"
+                    }
+                  ]
+                },
+                {
+                  "type": "code-line",
+                  "children": [
+                    {
+                      "text": "module.exports.add = add;"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "paragraph",
+              "children": [
+                {
+                  "text": "实际上还有第二种导出方式，直接把 "
+                },
+                {
+                  "code": true,
+                  "text": "add"
+                },
+                {
+                  "text": " 函数赋给 "
+                },
+                {
+                  "code": true,
+                  "text": "module.exports"
+                },
+                {
+                  "text": " 对象："
+                }
+              ]
+            },
+            {
+              "type": "code-block",
+              "lang": "javascript",
+              "children": [
+                {
+                  "type": "code-line",
+                  "children": [
+                    {
+                      "text": "module.exports = add;"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "paragraph",
+              "children": [
+                {
+                  "text": "这样写和第一种导出方式有什么区别呢？第一种方式，在 "
+                },
+                {
+                  "code": true,
+                  "text": "exports"
+                },
+                {
+                  "text": " 对象上添加一个属性名为 "
+                },
+                {
+                  "code": true,
+                  "text": "add"
+                },
+                {
+                  "text": "，该属性的值为 "
+                },
+                {
+                  "code": true,
+                  "text": "add"
+                },
+                {
+                  "text": " 函数；第二种方式，直接令 "
+                },
+                {
+                  "code": true,
+                  "text": "exports"
+                },
+                {
+                  "text": " 对象为 "
+                },
+                {
+                  "code": true,
+                  "text": "add"
+                },
+                {
+                  "text": " 函数。可能有点绕，但是请一定要理解这两者的重大区别！"
+                }
+              ]
+            },
+            {
+              "type": "paragraph",
+              "children": [
+                {
+                  "text": "在 "
+                },
+                {
+                  "code": true,
+                  "text": "require"
+                },
+                {
+                  "text": " 时，两者的区别就很明显了："
+                }
+              ]
+            },
+            {
+              "type": "code-block",
+              "lang": "javascript",
+              "children": [
+                {
+                  "type": "code-line",
+                  "children": [
+                    {
+                      "text": "// 第一种导出方式，需要访问 add 属性获取到 add 函数"
+                    }
+                  ]
+                },
+                {
+                  "type": "code-line",
+                  "children": [
+                    {
+                      "text": "const myModule = require('myModule');"
+                    }
+                  ]
+                },
+                {
+                  "type": "code-line",
+                  "children": [
+                    {
+                      "text": "myModule.add(1, 2);"
+                    }
+                  ]
+                },
+                {
+                  "type": "code-line",
+                  "children": [
+                    {
+                      "text": ""
+                    }
+                  ]
+                },
+                {
+                  "type": "code-line",
+                  "children": [
+                    {
+                      "text": "// 第二种导出方式，可以直接使用 add 函数"
+                    }
+                  ]
+                },
+                {
+                  "type": "code-line",
+                  "children": [
+                    {
+                      "text": "const add = require('myModule');"
+                    }
+                  ]
+                },
+                {
+                  "type": "code-line",
+                  "children": [
+                    {
+                      "text": "add(1, 2);"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "note",
+              "level": "warning",
+              "children": [
+                {
+                  "type": "paragraph",
+                  "children": [
+                    {
+                      "text": "直接写 "
+                    },
+                    {
+                      "code": true,
+                      "text": "exports = add;"
+                    },
+                    {
+                      "text": " 无法导出 "
+                    },
+                    {
+                      "code": true,
+                      "text": "add"
+                    },
+                    {
+                      "text": " 函数，因为 "
+                    },
+                    {
+                      "code": true,
+                      "text": "exports"
+                    },
+                    {
+                      "text": " 本质上是指向 "
+                    },
+                    {
+                      "code": true,
+                      "text": "module"
+                    },
+                    {
+                      "text": " 的 "
+                    },
+                    {
+                      "code": true,
+                      "text": "exports"
+                    },
+                    {
+                      "text": " 属性的引用，直接对 "
+                    },
+                    {
+                      "code": true,
+                      "text": "exports"
+                    },
+                    {
+                      "text": " 赋值只会改变 "
+                    },
+                    {
+                      "code": true,
+                      "text": "exports"
+                    },
+                    {
+                      "text": "，对 "
+                    },
+                    {
+                      "code": true,
+                      "text": "module.exports"
+                    },
+                    {
+                      "text": " 没有影响。如果你觉得难以理解，那我们用 "
+                    },
+                    {
+                      "code": true,
+                      "text": "apple"
+                    },
+                    {
+                      "text": " 和 "
+                    },
+                    {
+                      "code": true,
+                      "text": "price"
+                    },
+                    {
+                      "text": " 类比 "
+                    },
+                    {
+                      "code": true,
+                      "text": "module"
+                    },
+                    {
+                      "text": " 和 "
+                    },
+                    {
+                      "code": true,
+                      "text": "exports"
+                    },
+                    {
+                      "text": "："
+                    }
+                  ]
+                },
+                {
+                  "type": "code-block",
+                  "lang": "javascript",
+                  "children": [
+                    {
+                      "type": "code-line",
+                      "children": [
+                        {
+                          "text": "apple = { price: 1 };   // 想象 apple 就是 module"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "code-line",
+                      "children": [
+                        {
+                          "text": "price = apple.price;    // 想象 price 就是 exports"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "code-line",
+                      "children": [
+                        {
+                          "text": "apple.price = 3;        // 改变了 apple.price"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "code-line",
+                      "children": [
+                        {
+                          "text": "price = 3;              // 只改变了 price，没有改变 apple.price"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "type": "paragraph",
+                  "children": [
+                    {
+                      "text": "我们只能通过 "
+                    },
+                    {
+                      "code": true,
+                      "text": "apple.price = 1"
+                    },
+                    {
+                      "text": " 设置 "
+                    },
+                    {
+                      "code": true,
+                      "text": "price"
+                    },
+                    {
+                      "text": " 属性，而直接对 "
+                    },
+                    {
+                      "code": true,
+                      "text": "price"
+                    },
+                    {
+                      "text": " 赋值并不能修改 "
+                    },
+                    {
+                      "code": true,
+                      "text": "apple.price"
+                    },
+                    {
+                      "text": "。"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "file",
+          "file": "info.js",
+          "display": true,
+          "id": "BD0yw87yyK",
+          "children": [
+            {
+              "type": "explain",
+              "fixed": true,
+              "children": [
+                {
+                  "type": "heading-three",
+                  "children": [
+                    {
+                      "text": "重构 timer 脚本"
+                    }
+                  ],
+                  "id": "rV8mO2aZ-D"
+                },
+                {
+                  "type": "paragraph",
+                  "children": [
+                    {
+                      "text": "在聊了这么多关于 Node 模块机制的内容后，是时候回到我们之前的定时器脚本 timer.js 了。我们首先创建一个新的 Node 模块 info.js，用于打印系统信息，代码如下："
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "diff-block",
+              "file": "info.js",
+              "commit": "98a736d",
+              "hiddenLines": [],
+              "children": [
+                {
+                  "type": "paragraph",
+                  "children": [
+                    {
+                      "text": ""
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "explain",
+              "fixed": true,
+              "children": [
+                {
+                  "type": "paragraph",
+                  "children": [
+                    {
+                      "text": "这里我们导入了 Node 内置模块 "
+                    },
+                    {
+                      "code": true,
+                      "text": "os"
+                    },
+                    {
+                      "text": "，并通过 "
+                    },
+                    {
+                      "code": true,
+                      "text": "os.userInfo()"
+                    },
+                    {
+                      "text": " 查询到了系统用户名，接着通过 "
+                    },
+                    {
+                      "code": true,
+                      "text": "module.exports"
+                    },
+                    {
+                      "text": " 导出了 "
+                    },
+                    {
+                      "code": true,
+                      "text": "printProgramInfo"
+                    },
+                    {
+                      "text": " 函数。"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "file",
+          "file": "datetime.js",
+          "display": true,
+          "id": "T5gWfnVqht",
+          "children": [
+            {
+              "type": "explain",
+              "fixed": true,
+              "children": [
+                {
+                  "type": "paragraph",
+                  "children": [
+                    {
+                      "text": "然后创建第二个 Node 模块 datetime.js，用于返回当前的时间，代码如下："
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "diff-block",
+              "file": "datetime.js",
+              "commit": "98a736d",
+              "hiddenLines": [],
+              "children": [
+                {
+                  "type": "paragraph",
+                  "children": [
+                    {
+                      "text": ""
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "explain",
+              "fixed": true,
+              "children": [
+                {
+                  "type": "paragraph",
+                  "children": [
+                    {
+                      "text": "上面的模块中，我们选择了通过 "
+                    },
+                    {
+                      "code": true,
+                      "text": "exports"
+                    },
+                    {
+                      "text": " 导出 "
+                    },
+                    {
+                      "code": true,
+                      "text": "getCurrentTime"
+                    },
+                    {
+                      "text": " 函数。"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "file",
+          "file": "timer.js",
+          "display": true,
+          "id": "pPhHes6mDG",
+          "children": [
+            {
+              "type": "explain",
+              "fixed": true,
+              "children": [
+                {
+                  "type": "paragraph",
+                  "children": [
+                    {
+                      "text": "最后，我们在 timer.js 中通过 "
+                    },
+                    {
+                      "code": true,
+                      "text": "require"
+                    },
+                    {
+                      "text": " 导入刚才两个模块，并分别调用模块中的函数 "
+                    },
+                    {
+                      "code": true,
+                      "text": "printProgramInfo"
+                    },
+                    {
+                      "text": " 和 "
+                    },
+                    {
+                      "code": true,
+                      "text": "getCurrentTime"
+                    },
+                    {
+                      "text": "，代码如下："
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "diff-block",
+              "file": "timer.js",
+              "commit": "98a736d",
+              "hiddenLines": [],
+              "children": [
+                {
+                  "type": "paragraph",
+                  "children": [
+                    {
+                      "text": ""
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "explain",
+              "fixed": true,
+              "children": [
+                {
+                  "type": "paragraph",
+                  "children": [
+                    {
+                      "text": "再运行一下 timer.js，输出内容应该与之前完全一致。"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "explain",
+          "fixed": true,
+          "children": [
+            {
+              "type": "paragraph",
+              "children": [
+                {
+                  "text": "读到这里，我想先恭喜你渡过了 Node.js 入门最难的一关！如果你已经真正地理解了 Node 模块机制，那么我相信接下来的学习会无比轻松哦。"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "step",
+      "commit": "0658c65",
+      "id": "ZjaYvXDRaq",
+      "articleId": "892fa12",
+      "children": [
+        {
+          "type": "heading-two",
+          "commit": "0658c65",
+          "id": "Vv5zI_R5uC",
+          "fixed": true,
+          "children": [
+            {
+              "text": "命令行开发：接受输入参数"
+            }
+          ]
+        },
+        {
+          "type": "explain",
+          "fixed": true,
+          "children": [
+            {
+              "type": "paragraph",
+              "children": [
+                {
+                  "text": "Node.js 作为可以在操作系统中直接运行 JavaScript 代码的平台，为前端开发者开启了无限可能，其中就包括一系列用于实现前端自动化工作流的命令行工具，例如 "
+                },
+                {
+                  "link": true,
+                  "url": "http://gruntjs.com/",
+                  "text": "Grunt"
+                },
+                {
+                  "text": "、"
+                },
+                {
+                  "link": true,
+                  "url": "https://gulpjs.com/",
+                  "text": "Gulp"
+                },
+                {
+                  "text": " 还有大名鼎鼎的 "
+                },
+                {
+                  "link": true,
+                  "url": "https://webpack.js.org/",
+                  "text": "Webpack"
+                },
+                {
+                  "text": "。"
+                }
+              ]
+            },
+            {
+              "type": "paragraph",
+              "children": [
+                {
+                  "text": "从这一步开始，我们将把 timer.js 改造成一个命令行应用。具体地，我们希望 timer.js 可以通过命令行参数指定等待的时间（"
+                },
+                {
+                  "code": true,
+                  "text": "time"
+                },
+                {
+                  "text": " 选项）和最终输出的信息（"
+                },
+                {
+                  "code": true,
+                  "text": "message"
+                },
+                {
+                  "text": " 选项）："
+                }
+              ]
+            },
+            {
+              "type": "code-block",
+              "lang": "bash",
+              "children": [
+                {
+                  "type": "code-line",
+                  "children": [
+                    {
+                      "text": "$ node timer.js --time 5 --message \"Hello Tuture\""
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "heading-three",
+              "children": [
+                {
+                  "text": "通过 "
+                },
+                {
+                  "code": true,
+                  "text": "process.argv"
+                },
+                {
+                  "text": " 读取命令行参数"
+                }
+              ],
+              "id": "tjYm-_kaoZ"
+            },
+            {
+              "type": "paragraph",
+              "children": [
+                {
+                  "text": "之前在讲全局对象 "
+                },
+                {
+                  "code": true,
+                  "text": "process"
+                },
+                {
+                  "text": " 时提到一个 "
+                },
+                {
+                  "code": true,
+                  "text": "argv"
+                },
+                {
+                  "text": " 属性，能够获取命令行参数的数组。创建一个 args.js 文件，代码如下："
+                }
+              ]
+            },
+            {
+              "type": "code-block",
+              "lang": "javascript",
+              "children": [
+                {
+                  "type": "code-line",
+                  "children": [
+                    {
+                      "text": "console.log(process.argv);"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "paragraph",
+              "children": [
+                {
+                  "text": "然后运行以下命令："
+                }
+              ]
+            },
+            {
+              "type": "code-block",
+              "lang": "bash",
+              "children": [
+                {
+                  "type": "code-line",
+                  "children": [
+                    {
+                      "text": "$ node args.js --time 5 --message \"Hello Tuture\""
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "paragraph",
+              "children": [
+                {
+                  "text": "输出一个数组："
+                }
+              ]
+            },
+            {
+              "type": "code-block",
+              "lang": "",
+              "children": [
+                {
+                  "type": "code-line",
+                  "children": [
+                    {
+                      "text": "["
+                    }
+                  ]
+                },
+                {
+                  "type": "code-line",
+                  "children": [
+                    {
+                      "text": "  '/Users/mRc/.nvm/versions/node/v12.10.0/bin/node',"
+                    }
+                  ]
+                },
+                {
+                  "type": "code-line",
+                  "children": [
+                    {
+                      "text": "  '/Users/mRc/Tutorials/nodejs-quickstart/args.js',"
+                    }
+                  ]
+                },
+                {
+                  "type": "code-line",
+                  "children": [
+                    {
+                      "text": "  '--time',"
+                    }
+                  ]
+                },
+                {
+                  "type": "code-line",
+                  "children": [
+                    {
+                      "text": "  '5',"
+                    }
+                  ]
+                },
+                {
+                  "type": "code-line",
+                  "children": [
+                    {
+                      "text": "  '--message',"
+                    }
+                  ]
+                },
+                {
+                  "type": "code-line",
+                  "children": [
+                    {
+                      "text": "  'Hello Tuture'"
+                    }
+                  ]
+                },
+                {
+                  "type": "code-line",
+                  "children": [
+                    {
+                      "text": "]"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "paragraph",
+              "children": [
+                {
+                  "text": "可以看到，"
+                },
+                {
+                  "code": true,
+                  "text": "process.argv"
+                },
+                {
+                  "text": " 数组的第 0 个元素是 "
+                },
+                {
+                  "code": true,
+                  "text": "node"
+                },
+                {
+                  "text": " 的实际路径，第 1 个元素是 args.js 的路径，后面则是输入的所有参数。"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "file",
+          "file": "timer.js",
+          "display": true,
+          "id": "xPRDOC59OK",
+          "children": [
+            {
+              "type": "explain",
+              "fixed": true,
+              "children": [
+                {
+                  "type": "heading-three",
+                  "children": [
+                    {
+                      "text": "实现命令行应用"
+                    }
+                  ],
+                  "id": "VAIlHkOWY_"
+                },
+                {
+                  "type": "paragraph",
+                  "children": [
+                    {
+                      "text": "根据刚才的分析，我们可以非常简单粗暴地获取 "
+                    },
+                    {
+                      "code": true,
+                      "text": "process.argv"
+                    },
+                    {
+                      "text": " 的第 3 个和第 5 个元素，分别可以得到 "
+                    },
+                    {
+                      "code": true,
+                      "text": "time"
+                    },
+                    {
+                      "text": " 和 "
+                    },
+                    {
+                      "code": true,
+                      "text": "message"
+                    },
+                    {
+                      "text": " 参数。于是修改 timer.js 的代码如下："
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "diff-block",
+              "file": "timer.js",
+              "commit": "0658c65",
+              "hiddenLines": [],
+              "children": [
+                {
+                  "type": "paragraph",
+                  "children": [
+                    {
+                      "text": ""
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "explain",
+              "fixed": true,
+              "children": [
+                {
+                  "type": "paragraph",
+                  "children": [
+                    {
+                      "text": "提醒一下，"
+                    },
+                    {
+                      "code": true,
+                      "text": "setTimeout"
+                    },
+                    {
+                      "text": " 中时间的单位是毫秒，而我们指定的时间参数单位是秒，因此要乘 1000。"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "explain",
+          "fixed": true,
+          "children": [
+            {
+              "type": "paragraph",
+              "children": [
+                {
+                  "text": "运行 timer.js，加上刚才说的所有参数："
+                }
+              ]
+            },
+            {
+              "type": "code-block",
+              "lang": "bash",
+              "children": [
+                {
+                  "type": "code-line",
+                  "children": [
+                    {
+                      "text": "$ node timer.js --time 5 --message \"Hello Tuture\""
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "paragraph",
+              "children": [
+                {
+                  "text": "等待 5 秒钟后，你就看到了 Hello Tuture 的提示文本！"
+                }
+              ]
+            },
+            {
+              "type": "paragraph",
+              "children": [
+                {
+                  "text": "不过很显然，目前这个版本有很大的问题：输入参数的格式是固定的，很不灵活，比如说调换 "
+                },
+                {
+                  "code": true,
+                  "text": "time"
+                },
+                {
+                  "text": " 和 "
+                },
+                {
+                  "code": true,
+                  "text": "message"
+                },
+                {
+                  "text": " 的输入顺序就会出错，也不能检查用户是否输入了指定的参数，格式是否正确等等。如果要亲自实现上面所说的功能，那可得花很大的力气，说不定还会有不少 Bug。有没有更好的方案呢？"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "step",
+      "commit": "f2a1b0c",
+      "id": "Z-GtG0F0K6",
+      "articleId": "892fa12",
+      "children": [
+        {
+          "type": "heading-two",
+          "commit": "f2a1b0c",
+          "id": "4JjUtSnlE9",
+          "fixed": true,
+          "children": [
+            {
+              "text": "npm：洪荒之力，都赐予你"
+            }
+          ]
+        },
+        {
+          "type": "explain",
+          "fixed": true,
+          "children": [
+            {
+              "type": "paragraph",
+              "children": [
+                {
+                  "text": "从这一节开始，你将不再是一个人写代码。你的背后将拥有百万名 JavaScript 开发者的支持，而这一切仅需要 npm 就可以实现。npm 包括："
+                }
+              ]
+            },
+            {
+              "type": "bulleted-list",
+              "children": [
+                {
+                  "type": "list-item",
+                  "children": [
+                    {
+                      "text": "npm 命令行工具（安装 node 时也会附带安装）"
+                    }
+                  ],
+                  "parent": "bulleted-list",
+                  "level": 0
+                },
+                {
+                  "type": "list-item",
+                  "children": [
+                    {
+                      "text": "npm 集中式依赖仓库（registry），存放了其他 JavaScript 开发者分享的 npm 包"
+                    }
+                  ],
+                  "parent": "bulleted-list",
+                  "level": 0
+                },
+                {
+                  "type": "list-item",
+                  "children": [
+                    {
+                      "text": "npm "
+                    },
+                    {
+                      "link": true,
+                      "url": "https://npmjs.com",
+                      "text": "网站"
+                    },
+                    {
+                      "text": "，可以搜索需要的 npm 包、管理 npm 帐户等"
+                    }
+                  ],
+                  "parent": "bulleted-list",
+                  "level": 0
+                }
+              ]
+            },
+            {
+              "type": "heading-three",
+              "children": [
+                {
+                  "text": "npm 初探"
+                }
+              ],
+              "id": "-Z-Z_qjkER"
+            },
+            {
+              "type": "paragraph",
+              "children": [
+                {
+                  "text": "我们首先打开终端（命令行），检查一下 "
+                },
+                {
+                  "code": true,
+                  "text": "npm"
+                },
+                {
+                  "text": " 命令是否可用："
+                }
+              ]
+            },
+            {
+              "type": "code-block",
+              "lang": "bash",
+              "children": [
+                {
+                  "type": "code-line",
+                  "children": [
+                    {
+                      "text": "$ npm -v"
+                    }
+                  ]
+                },
+                {
+                  "type": "code-line",
+                  "children": [
+                    {
+                      "text": "6.10.3"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "paragraph",
+              "children": [
+                {
+                  "text": "然后在当前目录（也就是刚才编辑的 timer.js 所在的文件夹）运行以下命令，把当前项目初始化为 npm 项目:"
+                }
+              ]
+            },
+            {
+              "type": "code-block",
+              "lang": "bash",
+              "children": [
+                {
+                  "type": "code-line",
+                  "children": [
+                    {
+                      "text": "$ npm init"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "paragraph",
+              "children": [
+                {
+                  "text": "这时候 npm 会提一系列问题，你可以一路回车下去，也可以仔细回答，最终会创建一个 package.json 文件。package.json 文件是一个 npm 项目的核心，记录了这个项目所有的关键信息，内容如下："
+                }
+              ]
+            },
+            {
+              "type": "code-block",
+              "lang": "json",
+              "children": [
+                {
+                  "type": "code-line",
+                  "children": [
+                    {
+                      "text": "{"
+                    }
+                  ]
+                },
+                {
+                  "type": "code-line",
+                  "children": [
+                    {
+                      "text": "  \"name\": \"timer\","
+                    }
+                  ]
+                },
+                {
+                  "type": "code-line",
+                  "children": [
+                    {
+                      "text": "  \"version\": \"1.0.0\","
+                    }
+                  ]
+                },
+                {
+                  "type": "code-line",
+                  "children": [
+                    {
+                      "text": "  \"description\": \"A cool timer\","
+                    }
+                  ]
+                },
+                {
+                  "type": "code-line",
+                  "children": [
+                    {
+                      "text": "  \"main\": \"timer.js\","
+                    }
+                  ]
+                },
+                {
+                  "type": "code-line",
+                  "children": [
+                    {
+                      "text": "  \"scripts\": {"
+                    }
+                  ]
+                },
+                {
+                  "type": "code-line",
+                  "children": [
+                    {
+                      "text": "    \"test\": \"echo \\\"Error: no test specified\\\" && exit 1\""
+                    }
+                  ]
+                },
+                {
+                  "type": "code-line",
+                  "children": [
+                    {
+                      "text": "  },"
+                    }
+                  ]
+                },
+                {
+                  "type": "code-line",
+                  "children": [
+                    {
+                      "text": "  \"repository\": {"
+                    }
+                  ]
+                },
+                {
+                  "type": "code-line",
+                  "children": [
+                    {
+                      "text": "    \"type\": \"git\","
+                    }
+                  ]
+                },
+                {
+                  "type": "code-line",
+                  "children": [
+                    {
+                      "text": "    \"url\": \"git+https://github.com/mRcfps/nodejs-quickstart.git\""
+                    }
+                  ]
+                },
+                {
+                  "type": "code-line",
+                  "children": [
+                    {
+                      "text": "  },"
+                    }
+                  ]
+                },
+                {
+                  "type": "code-line",
+                  "children": [
+                    {
+                      "text": "  \"author\": \"mRcfps\","
+                    }
+                  ]
+                },
+                {
+                  "type": "code-line",
+                  "children": [
+                    {
+                      "text": "  \"license\": \"ISC\","
+                    }
+                  ]
+                },
+                {
+                  "type": "code-line",
+                  "children": [
+                    {
+                      "text": "  \"bugs\": {"
+                    }
+                  ]
+                },
+                {
+                  "type": "code-line",
+                  "children": [
+                    {
+                      "text": "    \"url\": \"https://github.com/mRcfps/nodejs-quickstart/issues\""
+                    }
+                  ]
+                },
+                {
+                  "type": "code-line",
+                  "children": [
+                    {
+                      "text": "  },"
+                    }
+                  ]
+                },
+                {
+                  "type": "code-line",
+                  "children": [
+                    {
+                      "text": "  \"homepage\": \"https://github.com/mRcfps/nodejs-quickstart#readme\""
+                    }
+                  ]
+                },
+                {
+                  "type": "code-line",
+                  "children": [
+                    {
+                      "text": "}"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "paragraph",
+              "children": [
+                {
+                  "text": "其中大部分字段的含义都很明确，例如 "
+                },
+                {
+                  "code": true,
+                  "text": "name"
+                },
+                {
+                  "text": " 项目名称、 "
+                },
+                {
+                  "code": true,
+                  "text": "version"
+                },
+                {
+                  "text": " 版本号、"
+                },
+                {
+                  "code": true,
+                  "text": "description"
+                },
+                {
+                  "text": " 描述、"
+                },
+                {
+                  "code": true,
+                  "text": "author"
+                },
+                {
+                  "text": " 作者等等。不过这个 "
+                },
+                {
+                  "code": true,
+                  "text": "scripts"
+                },
+                {
+                  "text": " 字段你可能会比较困惑，我们会在下一节中详细介绍。"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "file",
+          "file": "package-lock.json",
+          "display": false,
+          "id": "yqyy6gQfEd",
+          "children": [
+            {
+              "type": "explain",
+              "fixed": true,
+              "children": [
+                {
+                  "type": "paragraph",
+                  "children": [
+                    {
+                      "text": ""
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "diff-block",
+              "file": "package-lock.json",
+              "commit": "f2a1b0c",
+              "hiddenLines": [],
+              "children": [
+                {
+                  "type": "paragraph",
+                  "children": [
+                    {
+                      "text": ""
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "explain",
+              "fixed": true,
+              "children": [
+                {
+                  "type": "paragraph",
+                  "children": [
+                    {
+                      "text": ""
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "file",
+          "file": "package.json",
+          "display": true,
+          "id": "-OfioqpFTi",
+          "children": [
+            {
+              "type": "explain",
+              "fixed": true,
+              "children": [
+                {
+                  "type": "heading-three",
+                  "children": [
+                    {
+                      "text": "安装 npm 包"
+                    }
+                  ],
+                  "id": "An7UW8rytA"
+                },
+                {
+                  "type": "paragraph",
+                  "children": [
+                    {
+                      "text": "接下来我们将讲解 npm 最最最常用的命令—— "
+                    },
+                    {
+                      "code": true,
+                      "text": "install"
+                    },
+                    {
+                      "text": "。没错，毫不夸张地说，一个 JavaScript 程序员用的最多的 npm 命令就是 "
+                    },
+                    {
+                      "code": true,
+                      "text": "npm install"
+                    },
+                    {
+                      "text": "。"
+                    }
+                  ]
+                },
+                {
+                  "type": "paragraph",
+                  "children": [
+                    {
+                      "text": "在安装我们需要的 npm 包之前，我们需要去探索一下有哪些包可以为我们所用。通常，我们可以在 "
+                    },
+                    {
+                      "link": true,
+                      "url": "https://npmjs.com",
+                      "text": "npm 官方网站"
+                    },
+                    {
+                      "text": " 上进行关键词搜索（记得用英文哦），比如说我们搜 command line："
+                    }
+                  ]
+                },
+                {
+                  "type": "paragraph",
+                  "children": [
+                    {
+                      "type": "image",
+                      "url": ".tuture/assets/search-npm.png",
+                      "children": [
+                        {
+                          "text": ""
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "type": "paragraph",
+                  "children": [
+                    {
+                      "text": "出来的第一个结果 commander 就很符合我们的需要，点进去就是安装的说明和"
+                    },
+                    {
+                      "link": true,
+                      "url": "https://github.com/tj/commander.js/blob/HEAD/Readme_zh-CN.md",
+                      "text": "使用文档"
+                    },
+                    {
+                      "text": "。我们还想要一个“加载中”的动画效果，提高用户的使用体验，试着搜一下 loading 关键词："
+                    }
+                  ]
+                },
+                {
+                  "type": "paragraph",
+                  "children": [
+                    {
+                      "type": "image",
+                      "url": ".tuture/assets/search-npm2.png",
+                      "children": [
+                        {
+                          "text": ""
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "type": "paragraph",
+                  "children": [
+                    {
+                      "text": "第二个结果 ora 也符合我们的需要。那我们现在就安装这两个 npm 包："
+                    }
+                  ]
+                },
+                {
+                  "type": "code-block",
+                  "lang": "bash",
+                  "children": [
+                    {
+                      "type": "code-line",
+                      "children": [
+                        {
+                          "text": "$ npm install commander ora"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "type": "paragraph",
+                  "children": [
+                    {
+                      "text": "少许等待后，可以看到 package.json 多了一个非常重要的 "
+                    },
+                    {
+                      "code": true,
+                      "text": "dependencies"
+                    },
+                    {
+                      "text": " 字段："
+                    }
+                  ]
+                },
+                {
+                  "type": "code-block",
+                  "lang": "json",
+                  "children": [
+                    {
+                      "type": "code-line",
+                      "children": [
+                        {
+                          "text": "\"dependencies\": {"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "code-line",
+                      "children": [
+                        {
+                          "text": "  \"commander\": \"^4.0.1\","
+                        }
+                      ]
+                    },
+                    {
+                      "type": "code-line",
+                      "children": [
+                        {
+                          "text": "  \"ora\": \"^4.0.3\""
+                        }
+                      ]
+                    },
+                    {
+                      "type": "code-line",
+                      "children": [
+                        {
+                          "text": "}"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "type": "paragraph",
+                  "children": [
+                    {
+                      "text": "这个字段中就记录了我们这个项目的"
+                    },
+                    {
+                      "bold": true,
+                      "text": "直接依赖"
+                    },
+                    {
+                      "text": "。与"
+                    },
+                    {
+                      "bold": true,
+                      "text": "直接依赖"
+                    },
+                    {
+                      "text": "相对的就是"
+                    },
+                    {
+                      "bold": true,
+                      "text": "间接依赖"
+                    },
+                    {
+                      "text": "，例如 commander 和 ora 的依赖，我们通常不用关心。所有的 npm 包（直接依赖和间接依赖）全部都存放在项目的 node_modules 目录中。"
+                    }
+                  ]
+                },
+                {
+                  "type": "note",
+                  "level": "info",
+                  "children": [
+                    {
+                      "type": "paragraph",
+                      "children": [
+                        {
+                          "text": "node_modules 通常有很多的文件，因此不会加入到 Git 版本控制系统中，你从网上下载的 npm 项目一般也只会有 package.json，这时候只需运行 "
+                        },
+                        {
+                          "code": true,
+                          "text": "npm install"
+                        },
+                        {
+                          "text": "（后面不跟任何内容），就可以下载并安装所有依赖了。"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "type": "paragraph",
+                  "children": [
+                    {
+                      "text": "整个 package.json 代码如下所示："
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "diff-block",
+              "file": "package.json",
+              "commit": "f2a1b0c",
+              "hiddenLines": [],
+              "children": [
+                {
+                  "type": "paragraph",
+                  "children": [
+                    {
+                      "text": ""
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "explain",
+              "fixed": true,
+              "children": [
+                {
+                  "type": "heading-three",
+                  "children": [
+                    {
+                      "text": "关于版本号"
+                    }
+                  ],
+                  "id": "dCrS5kT_mL"
+                },
+                {
+                  "type": "paragraph",
+                  "children": [
+                    {
+                      "text": "在软件开发中，版本号是一个非常重要的概念，不同版本的软件存在或大或小的差异。npm 采用了语义版本号（Semantic Versioning，简称 "
+                    },
+                    {
+                      "link": true,
+                      "url": "https://semver.org/lang/zh-CN/",
+                      "text": "semver"
+                    },
+                    {
+                      "text": "），具体规定如下："
+                    }
+                  ]
+                },
+                {
+                  "type": "bulleted-list",
+                  "children": [
+                    {
+                      "type": "list-item",
+                      "children": [
+                        {
+                          "text": "版本格式为：主版本号.次版本号.修订号"
+                        }
+                      ],
+                      "parent": "bulleted-list",
+                      "level": 0
+                    },
+                    {
+                      "type": "list-item",
+                      "children": [
+                        {
+                          "text": "主版本号的改变意味着"
+                        },
+                        {
+                          "bold": true,
+                          "text": "不兼容的 API 修改"
+                        }
+                      ],
+                      "parent": "bulleted-list",
+                      "level": 0
+                    },
+                    {
+                      "type": "list-item",
+                      "children": [
+                        {
+                          "text": "次版本号的改变意味着做了"
+                        },
+                        {
+                          "bold": true,
+                          "text": "向下兼容的功能性新增"
+                        }
+                      ],
+                      "parent": "bulleted-list",
+                      "level": 0
+                    },
+                    {
+                      "type": "list-item",
+                      "children": [
+                        {
+                          "text": "修订号的改变意味着做了"
+                        },
+                        {
+                          "bold": true,
+                          "text": "向下兼容的问题修正"
+                        }
+                      ],
+                      "parent": "bulleted-list",
+                      "level": 0
+                    }
+                  ]
+                },
+                {
+                  "type": "note",
+                  "level": "info",
+                  "children": [
+                    {
+                      "type": "paragraph",
+                      "children": [
+                        {
+                          "bold": true,
+                          "text": "向下兼容"
+                        },
+                        {
+                          "text": "的简单理解就是"
+                        },
+                        {
+                          "bold": true,
+                          "text": "功能只增不减"
+                        },
+                        {
+                          "text": "。"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "type": "paragraph",
+                  "children": [
+                    {
+                      "text": "因此在 package.json 的 "
+                    },
+                    {
+                      "code": true,
+                      "text": "dependencies"
+                    },
+                    {
+                      "text": " 字段中，可以通过以下方式指定版本："
+                    }
+                  ]
+                },
+                {
+                  "type": "bulleted-list",
+                  "children": [
+                    {
+                      "type": "list-item",
+                      "children": [
+                        {
+                          "bold": true,
+                          "text": "精确版本"
+                        },
+                        {
+                          "text": "：例如 "
+                        },
+                        {
+                          "code": true,
+                          "text": "1.0.0"
+                        },
+                        {
+                          "text": "，一定只会安装版本为 "
+                        },
+                        {
+                          "code": true,
+                          "text": "1.0.0"
+                        },
+                        {
+                          "text": " 的依赖"
+                        }
+                      ],
+                      "parent": "bulleted-list",
+                      "level": 0
+                    },
+                    {
+                      "type": "list-item",
+                      "children": [
+                        {
+                          "bold": true,
+                          "text": "锁定主版本和次版本"
+                        },
+                        {
+                          "text": "：可以写成 "
+                        },
+                        {
+                          "code": true,
+                          "text": "1.0"
+                        },
+                        {
+                          "text": "、"
+                        },
+                        {
+                          "code": true,
+                          "text": "1.0.x"
+                        },
+                        {
+                          "text": " 或 "
+                        },
+                        {
+                          "code": true,
+                          "text": "~1.0.0"
+                        },
+                        {
+                          "text": "，那么可能会安装例如 "
+                        },
+                        {
+                          "code": true,
+                          "text": "1.0.8"
+                        },
+                        {
+                          "text": " 的依赖"
+                        }
+                      ],
+                      "parent": "bulleted-list",
+                      "level": 0
+                    },
+                    {
+                      "type": "list-item",
+                      "children": [
+                        {
+                          "bold": true,
+                          "text": "仅锁定主版本"
+                        },
+                        {
+                          "text": "：可以写成 "
+                        },
+                        {
+                          "code": true,
+                          "text": "1"
+                        },
+                        {
+                          "text": "、"
+                        },
+                        {
+                          "code": true,
+                          "text": "1.x"
+                        },
+                        {
+                          "text": " 或 "
+                        },
+                        {
+                          "code": true,
+                          "text": "^1.0.0"
+                        },
+                        {
+                          "text": "（ "
+                        },
+                        {
+                          "code": true,
+                          "text": "npm install"
+                        },
+                        {
+                          "text": " 默认采用的形式），那么可能会安装例如 "
+                        },
+                        {
+                          "code": true,
+                          "text": "1.1.0"
+                        },
+                        {
+                          "text": " 的依赖"
+                        }
+                      ],
+                      "parent": "bulleted-list",
+                      "level": 0
+                    },
+                    {
+                      "type": "list-item",
+                      "children": [
+                        {
+                          "bold": true,
+                          "text": "最新版本"
+                        },
+                        {
+                          "text": "：可以写成 "
+                        },
+                        {
+                          "code": true,
+                          "text": "*"
+                        },
+                        {
+                          "text": " 或 "
+                        },
+                        {
+                          "code": true,
+                          "text": "x"
+                        },
+                        {
+                          "text": "，那么直接安装最新版本（不推荐）"
+                        }
+                      ],
+                      "parent": "bulleted-list",
+                      "level": 0
+                    }
+                  ]
+                },
+                {
+                  "type": "paragraph",
+                  "children": [
+                    {
+                      "text": "你也许注意到了 npm 还创建了一个 package-lock.json，这个文件就是用来"
+                    },
+                    {
+                      "bold": true,
+                      "text": "锁定全部直接依赖和间接依赖的精确版本号"
+                    },
+                    {
+                      "text": "，或者说提供了关于 node_modules 目录的精确描述，从而确保在这个项目中开发的所有人都能有完全一致的 npm 依赖。"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "file",
+          "file": "timer.js",
+          "display": true,
+          "id": "guaJHzuCsZ",
+          "children": [
+            {
+              "type": "explain",
+              "fixed": true,
+              "children": [
+                {
+                  "type": "heading-three",
+                  "children": [
+                    {
+                      "text": "站在巨人的肩膀上"
+                    }
+                  ],
+                  "id": "QR_VXkC2U_"
+                },
+                {
+                  "type": "paragraph",
+                  "children": [
+                    {
+                      "text": "我们在大致读了一下 commander 和 ora 的文档之后，就可以开始用起来了，修改 timer.js 代码如下："
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "diff-block",
+              "file": "timer.js",
+              "commit": "f2a1b0c",
+              "hiddenLines": [],
+              "children": [
+                {
+                  "type": "paragraph",
+                  "children": [
+                    {
+                      "text": ""
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "explain",
+              "fixed": true,
+              "children": [
+                {
+                  "type": "paragraph",
+                  "children": [
+                    {
+                      "text": "这次，我们再次运行 timer.js："
+                    }
+                  ]
+                },
+                {
+                  "type": "code-block",
+                  "lang": "bash",
+                  "children": [
+                    {
+                      "type": "code-line",
+                      "children": [
+                        {
+                          "text": "$ node timer.js --message \"洪荒之力！\" --time 5"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "type": "paragraph",
+                  "children": [
+                    {
+                      "type": "image",
+                      "url": ".tuture/assets/power.gif",
+                      "children": [
+                        {
+                          "text": ""
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "type": "paragraph",
+                  "children": [
+                    {
+                      "text": "转起来了！"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "explain",
+          "fixed": true,
+          "children": [
+            {
+              "type": "paragraph",
+              "children": [
+                {
+                  "text": ""
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "step",
+      "commit": "56e6c18",
+      "id": "B0YXoFKoeJ",
+      "articleId": "892fa12",
+      "children": [
+        {
+          "type": "heading-two",
+          "commit": "56e6c18",
+          "id": "IMpzMZ0LeV",
+          "fixed": true,
+          "children": [
+            {
+              "text": "尝鲜 npm scripts"
+            }
+          ]
+        },
+        {
+          "type": "explain",
+          "fixed": true,
+          "children": [
+            {
+              "type": "paragraph",
+              "children": [
+                {
+                  "text": "在这一节中，我们将简单地介绍一下 npm scripts，也就是 npm 脚本。之前在 package.json 中提到，有个字段叫 "
+                },
+                {
+                  "code": true,
+                  "text": "scripts"
+                },
+                {
+                  "text": "，这个字段就定义了全部的 npm scripts。我们发现在用 "
+                },
+                {
+                  "code": true,
+                  "text": "npm init"
+                },
+                {
+                  "text": " 时创建的 package.json 文件默认就添加了一个 "
+                },
+                {
+                  "code": true,
+                  "text": "test"
+                },
+                {
+                  "text": " 脚本："
+                }
+              ]
+            },
+            {
+              "type": "code-block",
+              "lang": "json",
+              "children": [
+                {
+                  "type": "code-line",
+                  "children": [
+                    {
+                      "text": "\"test\": \"echo \\\"Error: no test specified\\\" && exit 1\""
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "paragraph",
+              "children": [
+                {
+                  "text": "那一串命令就是 test 脚本将要执行的内容，我们可以通过 "
+                },
+                {
+                  "code": true,
+                  "text": "npm test"
+                },
+                {
+                  "text": " 命令执行该脚本："
+                }
+              ]
+            },
+            {
+              "type": "code-block",
+              "lang": "bash",
+              "children": [
+                {
+                  "type": "code-line",
+                  "children": [
+                    {
+                      "text": "$ npm test"
+                    }
+                  ]
+                },
+                {
+                  "type": "code-line",
+                  "children": [
+                    {
+                      "text": ""
+                    }
+                  ]
+                },
+                {
+                  "type": "code-line",
+                  "children": [
+                    {
+                      "text": "> timer@1.0.0 test /Users/mRc/Tutorials/nodejs-quickstart"
+                    }
+                  ]
+                },
+                {
+                  "type": "code-line",
+                  "children": [
+                    {
+                      "text": "> echo \"Error: no test specified\" && exit 1"
+                    }
+                  ]
+                },
+                {
+                  "type": "code-line",
+                  "children": [
+                    {
+                      "text": ""
+                    }
+                  ]
+                },
+                {
+                  "type": "code-line",
+                  "children": [
+                    {
+                      "text": "Error: no test specified"
+                    }
+                  ]
+                },
+                {
+                  "type": "code-line",
+                  "children": [
+                    {
+                      "text": "npm ERR! Test failed.  See above for more details."
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "paragraph",
+              "children": [
+                {
+                  "text": "在初步体验了 npm scripts 之后，我们有必要了解一下 npm scripts 分为两大类："
+                }
+              ]
+            },
+            {
+              "type": "bulleted-list",
+              "children": [
+                {
+                  "type": "list-item",
+                  "children": [
+                    {
+                      "bold": true,
+                      "text": "预定义脚本"
+                    },
+                    {
+                      "text": "：例如 "
+                    },
+                    {
+                      "code": true,
+                      "text": "test"
+                    },
+                    {
+                      "text": "、"
+                    },
+                    {
+                      "code": true,
+                      "text": "start"
+                    },
+                    {
+                      "text": "、"
+                    },
+                    {
+                      "code": true,
+                      "text": "install"
+                    },
+                    {
+                      "text": "、"
+                    },
+                    {
+                      "code": true,
+                      "text": "publish"
+                    },
+                    {
+                      "text": " 等等，直接通过 "
+                    },
+                    {
+                      "code": true,
+                      "text": "npm <scriptName>"
+                    },
+                    {
+                      "text": " 运行，例如 "
+                    },
+                    {
+                      "code": true,
+                      "text": "npm test"
+                    },
+                    {
+                      "text": "，所有预定义的脚本可查看"
+                    },
+                    {
+                      "link": true,
+                      "url": "https://docs.npmjs.com/misc/scripts#description",
+                      "text": "文档"
+                    }
+                  ],
+                  "parent": "bulleted-list",
+                  "level": 0
+                },
+                {
+                  "type": "list-item",
+                  "children": [
+                    {
+                      "bold": true,
+                      "text": "自定义脚本"
+                    },
+                    {
+                      "text": "：除了以上自带脚本的其他脚本，需要通过 "
+                    },
+                    {
+                      "code": true,
+                      "text": "npm run <scriptName>"
+                    },
+                    {
+                      "text": " 运行，例如 "
+                    },
+                    {
+                      "code": true,
+                      "text": "npm run custom"
+                    }
+                  ],
+                  "parent": "bulleted-list",
+                  "level": 0
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "file",
+          "file": "package.json",
+          "display": true,
+          "id": "_Oj_Iqchb-",
+          "children": [
+            {
+              "type": "explain",
+              "fixed": true,
+              "children": [
+                {
+                  "type": "paragraph",
+                  "children": [
+                    {
+                      "text": "现在就让我们开始为 timer 项目添加两个 npm scripts，分别是 "
+                    },
+                    {
+                      "code": true,
+                      "text": "start"
+                    },
+                    {
+                      "text": " 和 "
+                    },
+                    {
+                      "code": true,
+                      "text": "lint"
+                    },
+                    {
+                      "text": "。第一个是预定义的，用于启动我们的 timer.js；第二个是静态代码检查，用于在开发时检查我们的代码。首先安装 "
+                    },
+                    {
+                      "link": true,
+                      "url": "http://eslint.cn/",
+                      "text": "ESLint"
+                    },
+                    {
+                      "text": " npm 包："
+                    }
+                  ]
+                },
+                {
+                  "type": "code-block",
+                  "lang": "bash",
+                  "children": [
+                    {
+                      "type": "code-line",
+                      "children": [
+                        {
+                          "text": "$ npm install eslint --save-dev"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "code-line",
+                      "children": [
+                        {
+                          "text": "$ # 或者"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "code-line",
+                      "children": [
+                        {
+                          "text": "$ npm install eslint -D"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "type": "paragraph",
+                  "children": [
+                    {
+                      "text": "注意到我们加了一个 "
+                    },
+                    {
+                      "code": true,
+                      "text": "-D"
+                    },
+                    {
+                      "text": " 或 "
+                    },
+                    {
+                      "code": true,
+                      "text": "--save-dev"
+                    },
+                    {
+                      "text": " 选项，代表 "
+                    },
+                    {
+                      "code": true,
+                      "text": "eslint"
+                    },
+                    {
+                      "text": " 是一个"
+                    },
+                    {
+                      "bold": true,
+                      "text": "开发依赖"
+                    },
+                    {
+                      "text": "，在实际项目发布或部署时不需要用到。npm 会把所有开发依赖添加到 "
+                    },
+                    {
+                      "code": true,
+                      "text": "devDependencies"
+                    },
+                    {
+                      "text": " 字段中。然后分别添加 "
+                    },
+                    {
+                      "code": true,
+                      "text": "start"
+                    },
+                    {
+                      "text": " 和 "
+                    },
+                    {
+                      "code": true,
+                      "text": "lint"
+                    },
+                    {
+                      "text": " 脚本，代码如下："
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "diff-block",
+              "file": "package.json",
+              "commit": "56e6c18",
+              "hiddenLines": [],
+              "children": [
+                {
+                  "type": "paragraph",
+                  "children": [
+                    {
+                      "text": ""
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "explain",
+              "fixed": true,
+              "children": [
+                {
+                  "type": "paragraph",
+                  "children": [
+                    {
+                      "text": ""
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "file",
+          "file": ".eslintrc.js",
+          "display": true,
+          "id": "Pz3e6cocLN",
+          "children": [
+            {
+              "type": "explain",
+              "fixed": true,
+              "children": [
+                {
+                  "type": "paragraph",
+                  "children": [
+                    {
+                      "text": "ESLint 的使用需要一个配置文件，创建 .eslintrc.js 文件（注意最前面有一个点），代码如下："
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "diff-block",
+              "file": ".eslintrc.js",
+              "commit": "56e6c18",
+              "hiddenLines": [],
+              "children": [
+                {
+                  "type": "paragraph",
+                  "children": [
+                    {
+                      "text": ""
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "explain",
+              "fixed": true,
+              "children": [
+                {
+                  "type": "paragraph",
+                  "children": [
+                    {
+                      "text": ""
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "file",
+          "file": "package-lock.json",
+          "display": false,
+          "id": "78deJSYbE_",
+          "children": [
+            {
+              "type": "explain",
+              "fixed": true,
+              "children": [
+                {
+                  "type": "paragraph",
+                  "children": [
+                    {
+                      "text": ""
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "diff-block",
+              "file": "package-lock.json",
+              "commit": "56e6c18",
+              "hiddenLines": [],
+              "children": [
+                {
+                  "type": "paragraph",
+                  "children": [
+                    {
+                      "text": ""
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "explain",
+              "fixed": true,
+              "children": [
+                {
+                  "type": "paragraph",
+                  "children": [
+                    {
+                      "text": ""
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "explain",
+          "fixed": true,
+          "children": [
+            {
+              "type": "paragraph",
+              "children": [
+                {
+                  "text": "运行 "
+                },
+                {
+                  "code": true,
+                  "text": "npm start"
+                },
+                {
+                  "text": "，可以看到成功地运行了我们的 timer.js 脚本；而运行 "
+                },
+                {
+                  "code": true,
+                  "text": "npm run lint"
+                },
+                {
+                  "text": "，没有输出任何结果（代表静态检查通过）。"
+                }
+              ]
+            },
+            {
+              "type": "paragraph",
+              "children": [
+                {
+                  "text": "npm scripts 看上去平淡无奇，但是却能为项目开发提供非常便利的工作流。例如，之前构建一个项目需要非常复杂的命令，但是如果你实现了一个 "
+                },
+                {
+                  "code": true,
+                  "text": "build"
+                },
+                {
+                  "text": " npm 脚本，那么当你的同事拿到这份代码时，只需简单地执行 "
+                },
+                {
+                  "code": true,
+                  "text": "npm run build"
+                },
+                {
+                  "text": " 就可以开始构建，而无需关心背后的技术细节。在后续的 Node.js 或是前端学习中，我们会在实际项目中使用各种 npm scripts 来定义我们的工作流，大家慢慢就会领会到它的强大了。"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "step",
+      "commit": "50ab5a4",
+      "id": "3gtu-35wPg",
+      "articleId": "892fa12",
+      "children": [
+        {
+          "type": "heading-two",
+          "commit": "50ab5a4",
+          "id": "B_OqdMMe5d",
+          "fixed": true,
+          "children": [
+            {
+              "text": "下次再见：监听 exit 事件"
+            }
+          ]
+        },
+        {
+          "type": "explain",
+          "fixed": true,
+          "children": [
+            {
+              "type": "paragraph",
+              "children": [
+                {
+                  "text": "在这篇教程的最后一节中，我们将让你简单地感受 Node 的事件机制。Node 的事件机制是比较复杂的，足够讲半本书，但这篇教程希望能通过一个非常简单的实例，让你对 Node 事件有个初步的了解。"
+                }
+              ]
+            },
+            {
+              "type": "note",
+              "level": "info",
+              "children": [
+                {
+                  "type": "paragraph",
+                  "children": [
+                    {
+                      "text": "如果你有过在网页（或其他用户界面）开发中编写事件处理（例如鼠标点击）的经验，那么你一定会觉得 Node 中处理事件的方式似曾相识而又符合直觉。"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "paragraph",
+              "children": [
+                {
+                  "text": "我们在前面简单地提了一下回调函数。实际上，回调函数和事件机制共同组成了 Node 的异步世界。具体而言，Node 中的事件都是通过 "
+                },
+                {
+                  "code": true,
+                  "text": "events"
+                },
+                {
+                  "text": " 核心模块中的 "
+                },
+                {
+                  "code": true,
+                  "text": "EventEmitter"
+                },
+                {
+                  "text": " 这个类实现的。"
+                },
+                {
+                  "code": true,
+                  "text": "EventEmitter"
+                },
+                {
+                  "text": " 包括两个最关键的方法："
+                }
+              ]
+            },
+            {
+              "type": "bulleted-list",
+              "children": [
+                {
+                  "type": "list-item",
+                  "children": [
+                    {
+                      "code": true,
+                      "text": "on"
+                    },
+                    {
+                      "text": "：用来监听事件的发生"
+                    }
+                  ],
+                  "parent": "bulleted-list",
+                  "level": 0
+                },
+                {
+                  "type": "list-item",
+                  "children": [
+                    {
+                      "code": true,
+                      "text": "emit"
+                    },
+                    {
+                      "text": "：用来触发新的事件"
+                    }
+                  ],
+                  "parent": "bulleted-list",
+                  "level": 0
+                }
+              ]
+            },
+            {
+              "type": "paragraph",
+              "children": [
+                {
+                  "text": "请看下面这个代码片段："
+                }
+              ]
+            },
+            {
+              "type": "code-block",
+              "lang": "javascript",
+              "children": [
+                {
+                  "type": "code-line",
+                  "children": [
+                    {
+                      "text": "const EventEmitter = require('events').EventEmitter;"
+                    }
+                  ]
+                },
+                {
+                  "type": "code-line",
+                  "children": [
+                    {
+                      "text": "const emitter = new EventEmitter();"
+                    }
+                  ]
+                },
+                {
+                  "type": "code-line",
+                  "children": [
+                    {
+                      "text": ""
+                    }
+                  ]
+                },
+                {
+                  "type": "code-line",
+                  "children": [
+                    {
+                      "text": "// 监听 connect 事件，注册回调函数"
+                    }
+                  ]
+                },
+                {
+                  "type": "code-line",
+                  "children": [
+                    {
+                      "text": "emitter.on('connect', function (username) {"
+                    }
+                  ]
+                },
+                {
+                  "type": "code-line",
+                  "children": [
+                    {
+                      "text": "  console.log(username + '已连接');"
+                    }
+                  ]
+                },
+                {
+                  "type": "code-line",
+                  "children": [
+                    {
+                      "text": "});"
+                    }
+                  ]
+                },
+                {
+                  "type": "code-line",
+                  "children": [
+                    {
+                      "text": ""
+                    }
+                  ]
+                },
+                {
+                  "type": "code-line",
+                  "children": [
+                    {
+                      "text": "// 触发 connect 事件，并且加上一个参数（即上面的 username）"
+                    }
+                  ]
+                },
+                {
+                  "type": "code-line",
+                  "children": [
+                    {
+                      "text": "emitter.emit('connect', '一只图雀');"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "paragraph",
+              "children": [
+                {
+                  "text": "运行上面的代码，就会输出以下内容："
+                }
+              ]
+            },
+            {
+              "type": "code-block",
+              "lang": "",
+              "children": [
+                {
+                  "type": "code-line",
+                  "children": [
+                    {
+                      "text": "一只图雀已连接"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "file",
+          "file": "timer.js",
+          "display": true,
+          "id": "LnBCMZuA8t",
+          "children": [
+            {
+              "type": "explain",
+              "fixed": true,
+              "children": [
+                {
+                  "type": "paragraph",
+                  "children": [
+                    {
+                      "text": "可以说，Node 中很多对象都继承自 "
+                    },
+                    {
+                      "code": true,
+                      "text": "EventEmitter"
+                    },
+                    {
+                      "text": "，包括我们熟悉的 "
+                    },
+                    {
+                      "code": true,
+                      "text": "process"
+                    },
+                    {
+                      "text": " 全局对象。在之前的 timer.js 脚本中，我们监听 "
+                    },
+                    {
+                      "code": true,
+                      "text": "exit"
+                    },
+                    {
+                      "text": " 事件（即 Node 进程结束），并添加一个自定义的回调函数打印“下次再见”的信息："
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "diff-block",
+              "file": "timer.js",
+              "commit": "50ab5a4",
+              "hiddenLines": [],
+              "children": [
+                {
+                  "type": "paragraph",
+                  "children": [
+                    {
+                      "text": ""
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "explain",
+              "fixed": true,
+              "children": [
+                {
+                  "type": "paragraph",
+                  "children": [
+                    {
+                      "text": "运行后，会在程序退出后打印“下次再见~”的字符串。你可能会问，为啥不能在 "
+                    },
+                    {
+                      "code": true,
+                      "text": "setTimeout"
+                    },
+                    {
+                      "text": " 的回调函数中添加程序退出的逻辑呢？因为除了正常运行结束（也就是等待了指定的时间），我们的程序很有可能会因为其他原因退出（例如抛出异常，或者用 "
+                    },
+                    {
+                      "code": true,
+                      "text": "process.exit"
+                    },
+                    {
+                      "text": " 强制退出），这时候通过监听 "
+                    },
+                    {
+                      "code": true,
+                      "text": "exit"
+                    },
+                    {
+                      "text": " 事件，就可以在确保所有情况下都能执行 "
+                    },
+                    {
+                      "code": true,
+                      "text": "exit"
+                    },
+                    {
+                      "text": " 事件的回调函数。如果你觉得还是不能理解的话，可以看下面这张示意图："
+                    }
+                  ]
+                },
+                {
+                  "type": "paragraph",
+                  "children": [
+                    {
+                      "type": "image",
+                      "url": ".tuture/assets/exit.png",
+                      "children": [
+                        {
+                          "text": ""
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "type": "note",
+                  "level": "info",
+                  "children": [
+                    {
+                      "type": "paragraph",
+                      "children": [
+                        {
+                          "code": true,
+                          "text": "process"
+                        },
+                        {
+                          "text": " 对象还支持其他常用的事件，例如 "
+                        },
+                        {
+                          "code": true,
+                          "text": "SIGINT"
+                        },
+                        {
+                          "text": "（用户按 Ctrl+C 时触发）等等，可参考这篇"
+                        },
+                        {
+                          "link": true,
+                          "url": "https://javascript.ruanyifeng.com/nodejs/process.html#toc10",
+                          "text": "文档"
+                        },
+                        {
+                          "text": "。"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "explain",
+          "fixed": true,
+          "children": [
+            {
+              "type": "paragraph",
+              "children": [
+                {
+                  "text": "这篇 Node.js 快速入门教程到这里就结束了，希望能够成为你进一步探索 Node.js 或是前端开发的基石。exit 事件已经触发，那我们也下次再见啦~"
+                }
+              ]
+            },
+            {
+              "type": "note",
+              "level": "primary",
+              "children": [
+                {
+                  "type": "paragraph",
+                  "children": [
+                    {
+                      "text": "此教程属于"
+                    },
+                    {
+                      "link": true,
+                      "url": "https://github.com/tuture-dev/nodejs-roadmap",
+                      "text": "Node.js 后端工程师学习路线"
+                    },
+                    {
+                      "text": "的一部分，点击可查看全部内容。"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
