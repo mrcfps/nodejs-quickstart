@@ -4,11 +4,8 @@
   "id": "892fa12",
   "cover": ".tuture/assets/cover.png",
   "created": "2019-12-03T01:42:02.548Z",
-  "categories": [
-    "后端",
-    "Node.js",
-    "入门"
-  ],
+  "github": "https://github.com/mRcfps/nodejs-quickstart",
+  "categories": ["后端", "Node.js", "入门"],
   "articles": [
     {
       "name": "一杯茶的时间，上手 Node.js",
@@ -16,11 +13,7 @@
       "id": "892fa12",
       "cover": ".tuture/assets/cover.png",
       "created": "2019-12-03T01:42:02.548Z",
-      "categories": [
-        "后端",
-        "Node.js",
-        "入门"
-      ]
+      "categories": ["后端", "Node.js", "入门"]
     }
   ],
   "steps": [
