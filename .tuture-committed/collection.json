@@ -26,10 +26,10 @@
   ],
   "steps": [
     {
-      "type": "step",
       "commit": "03752c9",
       "id": "9o1mgYco",
       "articleId": "892fa12",
+      "type": "step",
       "children": [
         {
           "type": "heading-two",
@@ -349,13 +349,14 @@
                 }
               ]
             }
-          ]
+          ],
+          "flag": "step_start"
         },
         {
-          "type": "file",
           "file": "timer.js",
           "display": true,
-          "id": "YHcqzRu2V",
+          "commit": "03752c9",
+          "type": "file",
           "children": [
             {
               "type": "explain",
@@ -608,7 +609,8 @@
                     }
                   ]
                 }
-              ]
+              ],
+              "flag": "file_start"
             },
             {
               "type": "diff-block",
@@ -716,7 +718,8 @@
                     }
                   ]
                 }
-              ]
+              ],
+              "flag": "file_end"
             }
           ]
         },
@@ -732,15 +735,16 @@
                 }
               ]
             }
-          ]
+          ],
+          "flag": "step_end"
         }
       ]
     },
     {
-      "type": "step",
       "commit": "f9d3190",
       "id": "MjEsnkI59",
       "articleId": "892fa12",
+      "type": "step",
       "children": [
         {
           "type": "heading-two",
@@ -1248,13 +1252,14 @@
                 }
               ]
             }
-          ]
+          ],
+          "flag": "step_start"
         },
         {
-          "type": "file",
           "file": "timer.js",
           "display": true,
-          "id": "Q9ODLZ2tO3",
+          "commit": "f9d3190",
+          "type": "file",
           "children": [
             {
               "type": "explain",
@@ -1393,7 +1398,8 @@
                     }
                   ]
                 }
-              ]
+              ],
+              "flag": "file_start"
             },
             {
               "type": "diff-block",
@@ -1520,7 +1526,8 @@
                     }
                   ]
                 }
-              ]
+              ],
+              "flag": "file_end"
             }
           ]
         },
@@ -1536,15 +1543,16 @@
                 }
               ]
             }
-          ]
+          ],
+          "flag": "step_end"
         }
       ]
     },
     {
-      "type": "step",
       "commit": "98a736d",
       "id": "PQZf8wdPIV",
       "articleId": "892fa12",
+      "type": "step",
       "children": [
         {
           "type": "heading-two",
@@ -2956,7 +2964,14 @@
                   "text": "add"
                 },
                 {
-                  "text": " 函数。可能有点绕，但是请一定要理解这两者的重大区别！"
+                  "text": " 函数。可能有点绕，但是请一定要理解这两者的重大区别！你也许猜到了，当我们使用 "
+                },
+                {
+                  "text": "module.exports",
+                  "code": true
+                },
+                {
+                  "text": " 导出时，就意味着整个模块只能导出一个变量或函数了。"
                 }
               ]
             },
@@ -2991,7 +3006,7 @@
                   "type": "code-line",
                   "children": [
                     {
-                      "text": "const myModule = require('myModule');"
+                      "text": "const myModule = require('./myModule');"
                     }
                   ]
                 },
@@ -3023,7 +3038,7 @@
                   "type": "code-line",
                   "children": [
                     {
-                      "text": "const add = require('myModule');"
+                      "text": "const add = require('./myModule');"
                     }
                   ]
                 },
@@ -3209,13 +3224,14 @@
                 }
               ]
             }
-          ]
+          ],
+          "flag": "step_start"
         },
         {
-          "type": "file",
           "file": "info.js",
           "display": true,
-          "id": "BD0yw87yyK",
+          "commit": "98a736d",
+          "type": "file",
           "children": [
             {
               "type": "explain",
@@ -3238,7 +3254,8 @@
                     }
                   ]
                 }
-              ]
+              ],
+              "flag": "file_start"
             },
             {
               "type": "diff-block",
@@ -3296,15 +3313,16 @@
                     }
                   ]
                 }
-              ]
+              ],
+              "flag": "file_end"
             }
           ]
         },
         {
-          "type": "file",
           "file": "datetime.js",
           "display": true,
-          "id": "T5gWfnVqht",
+          "commit": "98a736d",
+          "type": "file",
           "children": [
             {
               "type": "explain",
@@ -3318,7 +3336,8 @@
                     }
                   ]
                 }
-              ]
+              ],
+              "flag": "file_start"
             },
             {
               "type": "diff-block",
@@ -3362,15 +3381,16 @@
                     }
                   ]
                 }
-              ]
+              ],
+              "flag": "file_end"
             }
           ]
         },
         {
-          "type": "file",
           "file": "timer.js",
           "display": true,
-          "id": "pPhHes6mDG",
+          "commit": "98a736d",
+          "type": "file",
           "children": [
             {
               "type": "explain",
@@ -3405,7 +3425,8 @@
                     }
                   ]
                 }
-              ]
+              ],
+              "flag": "file_start"
             },
             {
               "type": "diff-block",
@@ -3435,7 +3456,8 @@
                     }
                   ]
                 }
-              ]
+              ],
+              "flag": "file_end"
             }
           ]
         },
@@ -3451,15 +3473,16 @@
                 }
               ]
             }
-          ]
+          ],
+          "flag": "step_end"
         }
       ]
     },
     {
-      "type": "step",
       "commit": "0658c65",
       "id": "ZjaYvXDRaq",
       "articleId": "892fa12",
+      "type": "step",
       "children": [
         {
           "type": "heading-two",
@@ -3718,13 +3741,14 @@
                 }
               ]
             }
-          ]
+          ],
+          "flag": "step_start"
         },
         {
-          "type": "file",
           "file": "timer.js",
           "display": true,
-          "id": "xPRDOC59OK",
+          "commit": "0658c65",
+          "type": "file",
           "children": [
             {
               "type": "explain",
@@ -3768,7 +3792,8 @@
                     }
                   ]
                 }
-              ]
+              ],
+              "flag": "file_start"
             },
             {
               "type": "diff-block",
@@ -3805,7 +3830,8 @@
                     }
                   ]
                 }
-              ]
+              ],
+              "flag": "file_end"
             }
           ]
         },
@@ -3865,15 +3891,16 @@
                 }
               ]
             }
-          ]
+          ],
+          "flag": "step_end"
         }
       ]
     },
     {
-      "type": "step",
       "commit": "f2a1b0c",
       "id": "Z-GtG0F0K6",
       "articleId": "892fa12",
+      "type": "step",
       "children": [
         {
           "type": "heading-two",
@@ -4218,7 +4245,8 @@
                 }
               ]
             }
-          ]
+          ],
+          "flag": "step_start"
         },
         {
           "type": "file",
@@ -4273,10 +4301,10 @@
           ]
         },
         {
-          "type": "file",
           "file": "package.json",
           "display": true,
-          "id": "-OfioqpFTi",
+          "commit": "f2a1b0c",
+          "type": "file",
           "children": [
             {
               "type": "explain",
@@ -4506,7 +4534,8 @@
                     }
                   ]
                 }
-              ]
+              ],
+              "flag": "file_start"
             },
             {
               "type": "diff-block",
@@ -4817,15 +4846,16 @@
                     }
                   ]
                 }
-              ]
+              ],
+              "flag": "file_end"
             }
           ]
         },
         {
-          "type": "file",
           "file": "timer.js",
           "display": true,
-          "id": "guaJHzuCsZ",
+          "commit": "f2a1b0c",
+          "type": "file",
           "children": [
             {
               "type": "explain",
@@ -4848,7 +4878,8 @@
                     }
                   ]
                 }
-              ]
+              ],
+              "flag": "file_start"
             },
             {
               "type": "diff-block",
@@ -4914,7 +4945,8 @@
                     }
                   ]
                 }
-              ]
+              ],
+              "flag": "file_end"
             }
           ]
         },
@@ -4930,15 +4962,16 @@
                 }
               ]
             }
-          ]
+          ],
+          "flag": "step_end"
         }
       ]
     },
     {
-      "type": "step",
       "commit": "56e6c18",
       "id": "B0YXoFKoeJ",
       "articleId": "892fa12",
+      "type": "step",
       "children": [
         {
           "type": "heading-two",
@@ -5174,13 +5207,14 @@
                 }
               ]
             }
-          ]
+          ],
+          "flag": "step_start"
         },
         {
-          "type": "file",
           "file": "package.json",
           "display": true,
-          "id": "_Oj_Iqchb-",
+          "commit": "56e6c18",
+          "type": "file",
           "children": [
             {
               "type": "explain",
@@ -5303,7 +5337,8 @@
                     }
                   ]
                 }
-              ]
+              ],
+              "flag": "file_start"
             },
             {
               "type": "diff-block",
@@ -5333,15 +5368,16 @@
                     }
                   ]
                 }
-              ]
+              ],
+              "flag": "file_end"
             }
           ]
         },
         {
-          "type": "file",
           "file": ".eslintrc.js",
           "display": true,
-          "id": "Pz3e6cocLN",
+          "commit": "56e6c18",
+          "type": "file",
           "children": [
             {
               "type": "explain",
@@ -5355,7 +5391,8 @@
                     }
                   ]
                 }
-              ]
+              ],
+              "flag": "file_start"
             },
             {
               "type": "diff-block",
@@ -5385,7 +5422,8 @@
                     }
                   ]
                 }
-              ]
+              ],
+              "flag": "file_end"
             }
           ]
         },
@@ -5489,15 +5527,16 @@
                 }
               ]
             }
-          ]
+          ],
+          "flag": "step_end"
         }
       ]
     },
     {
-      "type": "step",
       "commit": "50ab5a4",
       "id": "3gtu-35wPg",
       "articleId": "892fa12",
+      "type": "step",
       "children": [
         {
           "type": "heading-two",
@@ -5714,13 +5753,14 @@
                 }
               ]
             }
-          ]
+          ],
+          "flag": "step_start"
         },
         {
-          "type": "file",
           "file": "timer.js",
           "display": true,
-          "id": "LnBCMZuA8t",
+          "commit": "50ab5a4",
+          "type": "file",
           "children": [
             {
               "type": "explain",
@@ -5755,7 +5795,8 @@
                     }
                   ]
                 }
-              ]
+              ],
+              "flag": "file_start"
             },
             {
               "type": "diff-block",
@@ -5860,7 +5901,8 @@
                     }
                   ]
                 }
-              ]
+              ],
+              "flag": "file_end"
             }
           ]
         },
@@ -5898,7 +5940,8 @@
                 }
               ]
             }
-          ]
+          ],
+          "flag": "step_end"
         }
       ]
     }
