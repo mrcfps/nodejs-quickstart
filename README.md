@@ -1,11 +1,11 @@
-# Node.js 快速入门教程
+# Node.js Quick Start Tutorial
 
-在[图雀社区](https://tuture.co/2019/12/03/892fa12/)查看这篇文章。
+View this article on [Tuture Community](https://tuture.co/2019/12/03/892fa12/).
 
-## 简介
+## Introduction
 
-Node.js 太火了，火到几乎所有前端工程师都想学，几乎所有后端工程师也想学。一说到 Node.js，我们马上就会想到“异步”“事件驱动”“非阻塞”“性能优良”这几个特点，但是你真的理解这些词的含义吗？这篇教程将带你快速入门 Node.js，为后续的前端学习或是 Node.js 进阶打下坚实的基础。
+Node.js is so popular that almost all frontend engineers want to learn it, and almost all backend engineers want to learn it too. When it comes to Node.js, we immediately think of characteristics like "asynchronous," "event-driven," "non-blocking," and "excellent performance," but do you really understand what these terms mean? This tutorial will take you on a quick introduction to Node.js, laying a solid foundation for subsequent frontend learning or advanced Node.js studies.
 
-## 反馈
+## Feedback
 
-欢迎对此教程的内容进行反馈（无论是疑问还是改进意见），可以在[文章](https://tuture.co/2019/12/03/892fa12/)下方留言，也可以在此仓库创建 Issue！
+Feedback on the content of this tutorial (whether questions or suggestions for improvement) is welcome. You can leave a message at the bottom of the [article](https://tuture.co/2019/12/03/892fa12/) or create an issue in this repository!
